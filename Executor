@@ -1,18 +1,12 @@
 local Rs = game:GetService("ReplicatedStorage")
 
-print("Tysm For Using My Script!")
-
-for i, v in ipairs(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab.TabLabel:GetChildren()) do
-	print(v.Name)
-end
-
 if Rs:FindFirstChild("MenuScript_By:ChimeraLle") then
 	print("Already Working!")
 else
 	print("Working Now!")
 	local new = Instance.new("Folder",Rs)
 	new.Name = "MenuScript_By:ChimeraLle"
-	
+
 	local CoreGui = game.CoreGui
 	local Rg = CoreGui:WaitForChild("RobloxGui")
 	local Scs = Rg:WaitForChild("SettingsClippingShield")
@@ -25,36 +19,40 @@ else
 	local Ntab1 = Ps:Clone()
 	Ntab1.Name = "Executor"
 	Ntab1.Parent = Hbc
-	local Ic1 = Ntab1:WaitForChild("icon")
+	local Tl1 = Ntab1:WaitForChild("TabLabel")
+	local Ic1 = Tl1:WaitForChild("icon")
 	Ic1.Image = "rbxassetis://17381033111"
-	local Tit1 = Ic1:WaitForChild("Title")
+	local Tit1 = Tl1:WaitForChild("Title")
 	Tit1.Text = "Executor"
 
 	local Ntab2 = Ps:Clone()
 	Ntab2.Name = "Search"
 	Ntab2.Parent = Hbc
-	local Ic2 = Ntab2:WaitForChild("icon")
+	local Tl2 = Ntab2:WaitForChild("TabLabel")
+	local Ic2 = Tl2:WaitForChild("icon")
 	Ic2.Image = "rbxassetis://11496279085"
-	local Tit2 = Ic2:WaitForChild("Title")
+	local Tit2 = Tl2:WaitForChild("Title")
 	Tit2.Text = "Search"
 
 	local Ntab3 = Ps:Clone()
 	Ntab3.Name = "Test"
 	Ntab3.Parent = Hbc
-	local Ic3 = Ntab1:WaitForChild("icon")
+	local Tl3 = Ntab3:WaitForChild("TabLabel")
+	local Ic3 = Tl3:WaitForChild("icon")
 	Ic3.Image = "rbxassetis://15668939723"
-	local Tit3 = Ic3:WaitForChild("Title")
+	local Tit3 = Tl3:WaitForChild("Title")
 	Tit3.Text = "Executor"
 
 	for i, v in ipairs(Hbc:GetChildren()) do
 		if v:IsA("TextButton") then
 			v.Size = UDim.new(0.125,0,1,0)
-			local Ic = v:WaitForChild("icon")
-			local Tit = Ic:WaitForChild("Title")
+			local Tl = v:WaitForChild("TabLabel")
+			local Ic = Tl:WaitForChild("icon")
+			local Tit = Tl:WaitForChild("Title")
 			Tit.TextScaled = true
 			local newT = Instance.new("UITextSizeConstraint",Tit)
 			newT.MaxTextSize = 14
 		end
 	end
-	
+
 end
