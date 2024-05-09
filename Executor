@@ -1,9 +1,11 @@
 local Rs = game:GetService("ReplicatedStorage")
 
+print("Tysm For Using My Script!")
+
 if Rs:FindFirstChild("MenuScript_By:ChimeraLle") then
-	print(Already Working!)
+	print("Already Working!")
 else
-	print(Working now!)
+	print("Working Now!")
 	local new = Instance.new("Folder",Rs)
 	new.Name = "MenuScript_By:ChimeraLle"
 	
