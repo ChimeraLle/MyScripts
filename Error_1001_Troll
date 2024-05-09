@@ -1,0 +1,329 @@
+local Rs = game:GetService("ReplicatedStorage")
+
+if Rs:FindFirstChild("TrollGui_By:ChimeraLle") then
+else
+	local new = Instance.new("Folder",Rs)
+	new.Name = "TrollGui_By:ChimeraLle"
+	
+	wait(300)
+	
+	local TrollGui = Instance.new("ScreenGui")
+	local Overlay = Instance.new("TextButton")
+	local CallDialog = Instance.new("ImageButton")
+	local AlertContents = Instance.new("ImageLabel")
+	local Footer = Instance.new("ImageLabel")
+	local layout = Instance.new("UIListLayout")
+	local margin = Instance.new("UIPadding")
+	local Buttons = Instance.new("ImageLabel")
+	local layout_2 = Instance.new("UIListLayout")
+	local margin_2 = Instance.new("UIPadding")
+	local Keep = Instance.new("ImageButton")
+	local UIStroke = Instance.new("UIStroke")
+	local ButtonContent = Instance.new("Frame")
+	local ButtonMiddleContent = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local Text = Instance.new("TextLabel")
+	local UICorner = Instance.new("UICorner")
+	local Leave = Instance.new("ImageButton")
+	local UIStroke_2 = Instance.new("UIStroke")
+	local ButtonContent_2 = Instance.new("Frame")
+	local ButtonMiddleContent_2 = Instance.new("Frame")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+	local Text_2 = Instance.new("TextLabel")
+	local UICorner_2 = Instance.new("UICorner")
+	local layout_3 = Instance.new("UIListLayout")
+	local MiddleContent = Instance.new("ImageLabel")
+	local layout_4 = Instance.new("UIListLayout")
+	local Content = Instance.new("ImageLabel")
+	local BodyText = Instance.new("TextLabel")
+	local layout_5 = Instance.new("UIListLayout")
+	local margin_3 = Instance.new("UIPadding")
+	local margin_4 = Instance.new("UIPadding")
+	local TitleContainer = Instance.new("ImageLabel")
+	local TitleArea = Instance.new("ImageLabel")
+	local layout_6 = Instance.new("UIListLayout")
+	local Title = Instance.new("TextLabel")
+	local Underline = Instance.new("Frame")
+	local margin_5 = Instance.new("UIPadding")
+	local layout_7 = Instance.new("UIListLayout")
+	local margin_6 = Instance.new("UIPadding")
+	local margin_7 = Instance.new("UIPadding")
+
+	--Properties:
+
+	TrollGui.Name = "TrollGui"
+	TrollGui.Parent = game.CoreGui
+	TrollGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	TrollGui.DisplayOrder = 8
+
+	Overlay.Name = "Overlay"
+	Overlay.Parent = TrollGui
+	Overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Overlay.BackgroundTransparency = 0.500
+	Overlay.BorderSizePixel = 0
+	Overlay.Size = UDim2.new(1, 0, 1, 0)
+	Overlay.AutoButtonColor = false
+	Overlay.Text = ""
+
+	CallDialog.Name = "CallDialog"
+	CallDialog.Parent = TrollGui
+	CallDialog.AnchorPoint = Vector2.new(0.5, 0.5)
+	CallDialog.BackgroundColor3 = Color3.fromRGB(57, 59, 61)
+	CallDialog.BackgroundTransparency = 1.000
+	CallDialog.BorderSizePixel = 0
+	CallDialog.ClipsDescendants = true
+	CallDialog.Position = UDim2.new(0.5, 0, 0.5, 0)
+	CallDialog.Selectable = false
+	CallDialog.Size = UDim2.new(0, 400, 0, 220)
+	CallDialog.AutoButtonColor = false
+	CallDialog.Image = "rbxasset://LuaPackages/Packages/_Index/UIBlox/UIBlox/AppImageAtlas/img_set_1x_1.png"
+	CallDialog.ImageColor3 = Color3.fromRGB(57, 59, 61)
+	CallDialog.ImageRectOffset = Vector2.new(402, 494)
+	CallDialog.ImageRectSize = Vector2.new(17, 17)
+	CallDialog.ScaleType = Enum.ScaleType.Slice
+	CallDialog.SliceCenter = Rect.new(8, 8, 9, 9)
+
+	AlertContents.Name = "AlertContents"
+	AlertContents.Parent = CallDialog
+	AlertContents.BackgroundTransparency = 1.000
+	AlertContents.BorderSizePixel = 0
+	AlertContents.Size = UDim2.new(0, 400, 0, 220)
+
+	Footer.Name = "Footer"
+	Footer.Parent = AlertContents
+	Footer.BackgroundTransparency = 1.000
+	Footer.LayoutOrder = 3
+	Footer.Size = UDim2.new(1, 0, 0, 36)
+
+	layout.Name = "$layout"
+	layout.Parent = Footer
+	layout.SortOrder = Enum.SortOrder.LayoutOrder
+	layout.Padding = UDim.new(0, 12)
+
+	margin.Name = "$margin"
+	margin.Parent = Footer
+
+	Buttons.Name = "Buttons"
+	Buttons.Parent = Footer
+	Buttons.BackgroundTransparency = 1.000
+	Buttons.LayoutOrder = 3
+	Buttons.Size = UDim2.new(1, 0, 0, 36)
+
+	layout_2.Name = "$layout"
+	layout_2.Parent = Buttons
+	layout_2.FillDirection = Enum.FillDirection.Horizontal
+	layout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	layout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	layout_2.Padding = UDim.new(0, 10)
+
+	margin_2.Name = "$margin"
+	margin_2.Parent = Buttons
+
+	Keep.Name = "Keep"
+	Keep.Parent = Buttons
+	Keep.BackgroundTransparency = 1.000
+	Keep.LayoutOrder = 1
+	Keep.Size = UDim2.new(0, 170, 0, 36)
+	Keep.AutoButtonColor = false
+	Keep.ImageRectOffset = Vector2.new(402, 494)
+	Keep.ImageRectSize = Vector2.new(17, 17)
+	Keep.ScaleType = Enum.ScaleType.Slice
+	Keep.SliceCenter = Rect.new(8, 8, 9, 9)
+
+	UIStroke.Name = "UIStroke"
+	UIStroke.Parent = Keep
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke.Color = Color3.fromRGB(255,255,255)
+	UIStroke.LineJoinMode = Enum.LineJoinMode.Round
+	UIStroke.Thickness = 1
+	UIStroke.Transparency = 0
+
+	ButtonContent.Name = "ButtonContent"
+	ButtonContent.Parent = Keep
+	ButtonContent.BackgroundTransparency = 1.000
+	ButtonContent.Size = UDim2.new(1, 0, 1, 0)
+
+	ButtonMiddleContent.Name = "ButtonMiddleContent"
+	ButtonMiddleContent.Parent = ButtonContent
+	ButtonMiddleContent.BackgroundTransparency = 1.000
+	ButtonMiddleContent.Size = UDim2.new(1, 0, 1, 0)
+
+	UIListLayout.Parent = ButtonMiddleContent
+	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+	UIListLayout.Padding = UDim.new(0, 5)
+
+	Text.Name = "Text"
+	Text.Parent = ButtonMiddleContent
+	Text.BackgroundTransparency = 1.000
+	Text.LayoutOrder = 2
+	Text.Size = UDim2.new(0, 101, 0, 22)
+	Text.Font = Enum.Font.BuilderSans
+	Text.Text = "Keep Playing"
+	Text.TextColor3 = Color3.fromRGB(238, 246, 255)
+	Text.TextSize = 20.000
+	Text.TextWrapped = true
+
+	UICorner.Parent = Keep
+
+	Leave.Name = "Leave"
+	Leave.Parent = Buttons
+	Leave.BackgroundColor3 = Color3.fromRGB(249, 248, 255)
+	Leave.LayoutOrder = 1
+	Leave.Size = UDim2.new(0, 170, 0, 36)
+	Leave.AutoButtonColor = false
+	Leave.ImageRectOffset = Vector2.new(402, 494)
+	Leave.ImageRectSize = Vector2.new(17, 17)
+	Leave.ScaleType = Enum.ScaleType.Slice
+	Leave.SliceCenter = Rect.new(8, 8, 9, 9)
+
+	UIStroke_2.Name = "UIStroke"
+	UIStroke_2.Parent = Leave
+	UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke_2.Color = Color3.fromRGB(255,255,255)
+	UIStroke_2.LineJoinMode = Enum.LineJoinMode.Round
+	UIStroke_2.Thickness = 1
+	UIStroke_2.Transparency = 0
+
+	ButtonContent_2.Name = "ButtonContent"
+	ButtonContent_2.Parent = Leave
+	ButtonContent_2.BackgroundTransparency = 1.000
+	ButtonContent_2.Size = UDim2.new(1, 0, 1, 0)
+
+	ButtonMiddleContent_2.Name = "ButtonMiddleContent"
+	ButtonMiddleContent_2.Parent = ButtonContent_2
+	ButtonMiddleContent_2.BackgroundTransparency = 1.000
+	ButtonMiddleContent_2.Size = UDim2.new(1, 0, 1, 0)
+
+	UIListLayout_2.Parent = ButtonMiddleContent_2
+	UIListLayout_2.FillDirection = Enum.FillDirection.Horizontal
+	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+	UIListLayout_2.Padding = UDim.new(0, 5)
+
+	Text_2.Name = "Text"
+	Text_2.Parent = ButtonMiddleContent_2
+	Text_2.BackgroundTransparency = 1.000
+	Text_2.LayoutOrder = 2
+	Text_2.Size = UDim2.new(0, 46, 0, 22)
+	Text_2.Font = Enum.Font.BuilderSans
+	Text_2.Text = "Leave"
+	Text_2.TextColor3 = Color3.fromRGB(57, 59, 61)
+	Text_2.TextSize = 20.000
+	Text_2.TextWrapped = true
+
+	UICorner_2.Parent = Leave
+
+	layout_3.Name = "$layout"
+	layout_3.Parent = AlertContents
+	layout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	layout_3.SortOrder = Enum.SortOrder.LayoutOrder
+	layout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+	layout_3.Padding = UDim.new(0, 25)
+
+	MiddleContent.Name = "MiddleContent"
+	MiddleContent.Parent = AlertContents
+	MiddleContent.BackgroundTransparency = 1.000
+	MiddleContent.LayoutOrder = 2
+	MiddleContent.Size = UDim2.new(1, 0, 0, 60)
+
+	layout_4.Name = "$layout"
+	layout_4.Parent = MiddleContent
+	layout_4.SortOrder = Enum.SortOrder.LayoutOrder
+
+	Content.Name = "Content"
+	Content.Parent = MiddleContent
+	Content.BackgroundTransparency = 1.000
+	Content.LayoutOrder = 2
+	Content.Size = UDim2.new(1, 0, 0, 60)
+
+	BodyText.Name = "BodyText"
+	BodyText.Parent = Content
+	BodyText.BackgroundTransparency = 1.000
+	BodyText.LayoutOrder = 1
+	BodyText.Size = UDim2.new(1, 0, 0, 60)
+	BodyText.Font = Enum.Font.BuilderSans
+	BodyText.Text = "We have detected another device in your house. In case you are alone, seek for help as soon as possible. (Error Code: 1001)"
+	BodyText.TextColor3 = Color3.fromRGB(189, 190, 190)
+	BodyText.TextSize = 17.000
+	BodyText.TextWrapped = true
+
+	layout_5.Name = "$layout"
+	layout_5.Parent = Content
+	layout_5.SortOrder = Enum.SortOrder.LayoutOrder
+	layout_5.VerticalAlignment = Enum.VerticalAlignment.Center
+	layout_5.Padding = UDim.new(0, 12)
+
+	margin_3.Name = "$margin"
+	margin_3.Parent = Content
+
+	margin_4.Name = "$margin"
+	margin_4.Parent = MiddleContent
+
+	TitleContainer.Name = "TitleContainer"
+	TitleContainer.Parent = AlertContents
+	TitleContainer.BackgroundTransparency = 1.000
+	TitleContainer.LayoutOrder = 1
+	TitleContainer.Size = UDim2.new(1, 0, 0, 52)
+
+	TitleArea.Name = "TitleArea"
+	TitleArea.Parent = TitleContainer
+	TitleArea.BackgroundTransparency = 1.000
+	TitleArea.LayoutOrder = 1
+	TitleArea.Size = UDim2.new(1, 0, 0, 40)
+
+	layout_6.Name = "$layout"
+	layout_6.Parent = TitleArea
+	layout_6.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	layout_6.SortOrder = Enum.SortOrder.LayoutOrder
+	layout_6.Padding = UDim.new(0, 12)
+
+	Title.Name = "Title"
+	Title.Parent = TitleArea
+	Title.BackgroundTransparency = 1.000
+	Title.LayoutOrder = 1
+	Title.Size = UDim2.new(0, 300, 0, 27)
+	Title.Font = Enum.Font.BuilderSans
+	Title.Text = "Possible Raid Warning!"
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextSize = 25.000
+	Title.TextWrapped = true
+
+	Underline.Name = "Underline"
+	Underline.Parent = TitleArea
+	Underline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Underline.BackgroundTransparency = 0.800
+	Underline.BorderSizePixel = 0
+	Underline.LayoutOrder = 2
+	Underline.Size = UDim2.new(1, 0, 0, 1)
+
+	margin_5.Name = "$margin"
+	margin_5.Parent = TitleArea
+
+	layout_7.Name = "$layout"
+	layout_7.Parent = TitleContainer
+	layout_7.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	layout_7.SortOrder = Enum.SortOrder.LayoutOrder
+	layout_7.Padding = UDim.new(0, 8)
+
+	margin_6.Name = "$margin"
+	margin_6.Parent = TitleContainer
+	margin_6.PaddingTop = UDim.new(0, 12)
+
+	margin_7.Name = "$margin"
+	margin_7.Parent = AlertContents
+	margin_7.PaddingBottom = UDim.new(0, 24)
+	margin_7.PaddingLeft = UDim.new(0, 24)
+	margin_7.PaddingRight = UDim.new(0, 24)
+
+	Keep.MouseButton1Up:Connect(function()
+		TrollGui.Enabled = false
+	end)
+
+	Leave.MouseButton1Up:Connect(function()
+		game:Shutdown()
+	end)
+end
