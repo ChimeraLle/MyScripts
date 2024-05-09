@@ -20,7 +20,7 @@ else
 	Ntab1.Name = "Executor"
 	Ntab1.Parent = Hbc
 	local Tl1 = Ntab1:WaitForChild("TabLabel")
-	local Ic1 = Tl1:WaitForChild("icon")
+	local Ic1 = Tl1:WaitForChild("Icon")
 	Ic1.Image = "rbxassetis://17381033111"
 	local Tit1 = Tl1:WaitForChild("Title")
 	Tit1.Text = "Executor"
@@ -29,7 +29,7 @@ else
 	Ntab2.Name = "Search"
 	Ntab2.Parent = Hbc
 	local Tl2 = Ntab2:WaitForChild("TabLabel")
-	local Ic2 = Tl2:WaitForChild("icon")
+	local Ic2 = Tl2:WaitForChild("Icon")
 	Ic2.Image = "rbxassetis://11496279085"
 	local Tit2 = Tl2:WaitForChild("Title")
 	Tit2.Text = "Search"
@@ -38,7 +38,7 @@ else
 	Ntab3.Name = "Test"
 	Ntab3.Parent = Hbc
 	local Tl3 = Ntab3:WaitForChild("TabLabel")
-	local Ic3 = Tl3:WaitForChild("icon")
+	local Ic3 = Tl3:WaitForChild("Icon")
 	Ic3.Image = "rbxassetis://15668939723"
 	local Tit3 = Tl3:WaitForChild("Title")
 	Tit3.Text = "Executor"
@@ -47,7 +47,7 @@ else
 		if v:IsA("TextButton") then
 			v.Size = UDim.new(0.125,0,1,0)
 			local Tl = v:WaitForChild("TabLabel")
-			local Ic = Tl:WaitForChild("icon")
+			local Ic = Tl:WaitForChild("Icon")
 			local Tit = Tl:WaitForChild("Title")
 			Tit.TextScaled = true
 			local newT = Instance.new("UITextSizeConstraint",Tit)
