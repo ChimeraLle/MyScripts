@@ -1,6 +1,7 @@
 local Rs = game:GetService("ReplicatedStorage")
 
 print("Tysm For Using My Script!")
+print(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab:GetChildren())
 
 if Rs:FindFirstChild("MenuScript_By:ChimeraLle") then
 	print("Already Working!")
@@ -21,7 +22,7 @@ else
 	local Ntab1 = Ps:Clone()
 	Ntab1.Name = "Executor"
 	Ntab1.Parent = Hbc
-	local Ic1 = Ntab1:WaitForChild("Icon")
+	local Ic1 = Ntab1:WaitForChild("icon")
 	Ic1.Image = "rbxassetis://17381033111"
 	local Tit1 = Ic1:WaitForChild("Title")
 	Tit1.Text = "Executor"
@@ -29,7 +30,7 @@ else
 	local Ntab2 = Ps:Clone()
 	Ntab2.Name = "Search"
 	Ntab2.Parent = Hbc
-	local Ic2 = Ntab2:WaitForChild("Icon")
+	local Ic2 = Ntab2:WaitForChild("icon")
 	Ic2.Image = "rbxassetis://11496279085"
 	local Tit2 = Ic2:WaitForChild("Title")
 	Tit2.Text = "Search"
@@ -37,7 +38,7 @@ else
 	local Ntab3 = Ps:Clone()
 	Ntab3.Name = "Test"
 	Ntab3.Parent = Hbc
-	local Ic3 = Ntab1:WaitForChild("Icon")
+	local Ic3 = Ntab1:WaitForChild("icon")
 	Ic3.Image = "rbxassetis://15668939723"
 	local Tit3 = Ic3:WaitForChild("Title")
 	Tit3.Text = "Executor"
@@ -45,7 +46,7 @@ else
 	for i, v in ipairs(Hbc:GetChildren()) do
 		if v:IsA("TextButton") then
 			v.Size = UDim.new(0.125,0,1,0)
-			local Ic = v:WaitForChild("Icon")
+			local Ic = v:WaitForChild("icon")
 			local Tit = Ic:WaitForChild("Title")
 			Tit.TextScaled = true
 			local newT = Instance.new("UITextSizeConstraint",Tit)
