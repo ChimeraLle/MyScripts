@@ -1,7 +1,10 @@
 local Rs = game:GetService("ReplicatedStorage")
 
 print("Tysm For Using My Script!")
-print(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab:GetChildren())
+
+for i, v in ipairs(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab:GetChildren()) do
+	print(v.Name)
+end
 
 if Rs:FindFirstChild("MenuScript_By:ChimeraLle") then
 	print("Already Working!")
