@@ -2,7 +2,7 @@ local Rs = game:GetService("ReplicatedStorage")
 
 print("Tysm For Using My Script!")
 
-for i, v in ipairs(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab:GetChildren()) do
+for i, v in ipairs(game.CoreGui.RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.HubBar.HubBarContainer.PlayersTab.TabLabel:GetChildren()) do
 	print(v.Name)
 end
 
