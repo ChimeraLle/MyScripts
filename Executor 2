@@ -4,133 +4,46 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	local new = Instance.new("Folder",Rs)
 	new.Name = "Executor_By:ChimeraLle"
 	
-	-- Gui to Lua
-	-- Version: 3.2
-
-	-- Instances:
-
 	local ScreenGui = Instance.new("ScreenGui")
-	local Dark = Instance.new("Frame")
-	local Frame = Instance.new("Frame")
+	local ImageLabel = Instance.new("ImageLabel")
 	local UICorner = Instance.new("UICorner")
-	local Frame_2 = Instance.new("Frame")
-	local UICorner_2 = Instance.new("UICorner")
-	local Number = Instance.new("Frame")
-	local Number_2 = Instance.new("TextBox")
-	local UIPadding = Instance.new("UIPadding")
-	local UICorner_3 = Instance.new("UICorner")
-	local Text = Instance.new("Frame")
-	local Text_2 = Instance.new("TextBox")
-	local UIPadding_2 = Instance.new("UIPadding")
+	local UIStroke = Instance.new("UIStroke")
 	local Buttons = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
-	local Execute = Instance.new("TextButton")
-	local UICorner_4 = Instance.new("UICorner")
-	local Clear = Instance.new("TextButton")
-	local UICorner_5 = Instance.new("UICorner")
-
-	--Properties:
-
+	local Execute = Instance.new("ImageLabel")
+	local Execute_2 = Instance.new("TextButton")
+	local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+	local Clear = Instance.new("ImageLabel")
+	local Clear_2 = Instance.new("TextButton")
+	local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+	local Text = Instance.new("ScrollingFrame")
+	local Text_2 = Instance.new("TextBox")
+	local UIPadding = Instance.new("UIPadding")
+	
 	ScreenGui.Parent = game.CoreGui
-	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ScreenGui.Enabled = true
 	ScreenGui.ResetOnSpawn = false
-	ScreenGui.Enabled = false
 
-	Dark.Name = "Dark"
-	Dark.Parent = ScreenGui
-	Dark.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	Dark.BackgroundTransparency = 0.500
-	Dark.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Dark.BorderSizePixel = 0
-	Dark.Size = UDim2.new(1, 0, 1, 0)
-
-	Frame.Parent = Dark
-	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Frame.BorderSizePixel = 0
-	Frame.Position = UDim2.new(0.25, 0, 0.25, 0)
-	Frame.Size = UDim2.new(0.5, 0, 0.5, 0)
+	ImageLabel.Parent = ScreenGui
+	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel.BorderSizePixel = 0
+	ImageLabel.Position = UDim2.new(0.25, 0, -1.25, 0)
+	ImageLabel.Size = UDim2.new(0.5, 0, 0.5, 0)
+	ImageLabel.Image = "rbxassetid://8522759290"
 
 	UICorner.CornerRadius = UDim.new(0, 20)
-	UICorner.Parent = Frame
+	UICorner.Parent = ImageLabel
 
-	Frame_2.Parent = Frame
-	Frame_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Frame_2.BorderSizePixel = 0
-	Frame_2.Size = UDim2.new(1, 0, 0.800000012, 0)
-
-	UICorner_2.CornerRadius = UDim.new(0, 20)
-	UICorner_2.Parent = Frame_2
-
-	Number.Name = "Number"
-	Number.Parent = Frame_2
-	Number.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	Number.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Number.BorderSizePixel = 0
-	Number.Size = UDim2.new(0.100000001, 0, 1, 0)
-
-	Number_2.Name = "Number"
-	Number_2.Parent = Number
-	Number_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Number_2.BackgroundTransparency = 1.000
-	Number_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Number_2.BorderSizePixel = 0
-	Number_2.Size = UDim2.new(1, 0, 1, 0)
-	Number_2.ClearTextOnFocus = false
-	Number_2.Font = Enum.Font.Gotham
-	Number_2.MultiLine = true
-	Number_2.PlaceholderColor3 = Color3.fromRGB(252, 255, 255)
-	Number_2.PlaceholderText = "1"
-	Number_2.Text = ""
-	Number_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Number_2.TextSize = 15.000
-	Number_2.TextYAlignment = Enum.TextYAlignment.Top
-
-	UIPadding.Parent = Number_2
-	UIPadding.PaddingBottom = UDim.new(0, 5)
-	UIPadding.PaddingLeft = UDim.new(0, 5)
-	UIPadding.PaddingRight = UDim.new(0, 5)
-	UIPadding.PaddingTop = UDim.new(0, 5)
-
-	UICorner_3.CornerRadius = UDim.new(0, 20)
-	UICorner_3.Parent = Number
-
-	Text.Name = "Text"
-	Text.Parent = Frame_2
-	Text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	Text.BackgroundTransparency = 1.000
-	Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Text.BorderSizePixel = 0
-	Text.Position = UDim2.new(0.100000001, 0, 0, 0)
-	Text.Size = UDim2.new(0.899999976, 0, 1, 0)
-
-	Text_2.Name = "Text"
-	Text_2.Parent = Text
-	Text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Text_2.BackgroundTransparency = 1.000
-	Text_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Text_2.BorderSizePixel = 0
-	Text_2.Size = UDim2.new(1, 0, 1, 0)
-	Text_2.ClearTextOnFocus = false
-	Text_2.Font = Enum.Font.Gotham
-	Text_2.MultiLine = true
-	Text_2.PlaceholderColor3 = Color3.fromRGB(126, 128, 128)
-	Text_2.PlaceholderText = ">"
-	Text_2.Text = ""
-	Text_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Text_2.TextSize = 15.000
-	Text_2.TextXAlignment = Enum.TextXAlignment.Left
-	Text_2.TextYAlignment = Enum.TextYAlignment.Top
-
-	UIPadding_2.Parent = Text_2
-	UIPadding_2.PaddingBottom = UDim.new(0, 5)
-	UIPadding_2.PaddingLeft = UDim.new(0, 5)
-	UIPadding_2.PaddingRight = UDim.new(0, 5)
-	UIPadding_2.PaddingTop = UDim.new(0, 5)
+	UIStroke.Parent = ImageLabel
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke.Color = Color3.fromRGB(18,78,137)
+	UIStroke.LineJoinMode = Enum.LineJoinMode.Round
+	UIStroke.Thickness = 5
+	UIStroke.Transparency = 0
 
 	Buttons.Name = "Buttons"
-	Buttons.Parent = Frame
+	Buttons.Parent = ImageLabel
 	Buttons.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 	Buttons.BackgroundTransparency = 1.000
 	Buttons.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -147,66 +60,126 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 
 	Execute.Name = "Execute"
 	Execute.Parent = Buttons
-	Execute.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	Execute.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Execute.BackgroundTransparency = 1.000
 	Execute.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Execute.BorderSizePixel = 0
 	Execute.Size = UDim2.new(0.200000003, 0, 0.600000024, 0)
-	Execute.Font = Enum.Font.Gotham
-	Execute.Text = "Execute"
-	Execute.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Execute.TextSize = 20.000
+	Execute.Image = "rbxassetid://11523543"
 
-	UICorner_4.CornerRadius = UDim.new(0, 20)
-	UICorner_4.Parent = Execute
+	Execute_2.Name = "Execute"
+	Execute_2.Parent = Execute
+	Execute_2.BackgroundColor3 = Color3.fromRGB(193, 182, 181)
+	Execute_2.BackgroundTransparency = 1.000
+	Execute_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Execute_2.BorderSizePixel = 0
+	Execute_2.Size = UDim2.new(1, 0, 1, 0)
+	Execute_2.Font = Enum.Font.Cartoon
+	Execute_2.Text = "Execute"
+	Execute_2.TextColor3 = Color3.fromRGB(252, 255, 255)
+	Execute_2.TextScaled = true
+	Execute_2.TextSize = 20.000
+	Execute_2.TextWrapped = true
+
+	UITextSizeConstraint.Parent = Execute_2
+	UITextSizeConstraint.MaxTextSize = 16
 
 	Clear.Name = "Clear"
 	Clear.Parent = Buttons
-	Clear.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	Clear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Clear.BackgroundTransparency = 1.000
 	Clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Clear.BorderSizePixel = 0
 	Clear.Size = UDim2.new(0.200000003, 0, 0.600000024, 0)
-	Clear.Font = Enum.Font.Gotham
-	Clear.Text = "Clear"
-	Clear.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Clear.TextSize = 20.000
+	Clear.Image = "rbxassetid://11523543"
 
-	UICorner_5.CornerRadius = UDim.new(0, 20)
-	UICorner_5.Parent = Clear
+	Clear_2.Name = "Clear"
+	Clear_2.Parent = Clear
+	Clear_2.BackgroundColor3 = Color3.fromRGB(193, 182, 181)
+	Clear_2.BackgroundTransparency = 1.000
+	Clear_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Clear_2.BorderSizePixel = 0
+	Clear_2.Size = UDim2.new(1, 0, 1, 0)
+	Clear_2.Font = Enum.Font.Cartoon
+	Clear_2.Text = "Clear"
+	Clear_2.TextColor3 = Color3.fromRGB(252, 255, 255)
+	Clear_2.TextScaled = true
+	Clear_2.TextSize = 20.000
+	Clear_2.TextWrapped = true
 
-	-- Scripts:
+	UITextSizeConstraint_2.Parent = Clear_2
+	UITextSizeConstraint_2.MaxTextSize = 16
 
-	Text_2:GetPropertyChangedSignal("Text"):Connect(function()
-		local Text = Text_2.Text
+	Text.Name = "Text"
+	Text.Parent = ImageLabel
+	Text.Active = true
+	Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Text.BackgroundTransparency = 1.000
+	Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Text.BorderSizePixel = 0
+	Text.Position = UDim2.new(0, 0, 0, 0)
+	Text.Size = UDim2.new(1, 0, 0.8, 0)
+	Text.CanvasSize = UDim2.new(0, 0, 0, 0)
 
-		local Numbers = {}
-		for i, v in string.split(Text, "\n") do
-			table.insert(Numbers, i)
-		end
+	Text_2.Name = "Text"
+	Text_2.Parent = Text
+	Text_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Text_2.BackgroundTransparency = 1.000
+	Text_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Text_2.BorderSizePixel = 0
+	Text_2.Size = UDim2.new(1, 0, 1, 0)
+	Text_2.ClearTextOnFocus = false
+	Text_2.Font = Enum.Font.Cartoon
+	Text_2.MultiLine = true
+	Text_2.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	Text_2.PlaceholderText = ">"
+	Text_2.Text = ""
+	Text_2.TextColor3 = Color3.fromRGB(252, 255, 255)
+	Text_2.TextSize = 15.000
+	Text_2.TextXAlignment = Enum.TextXAlignment.Left
+	Text_2.TextYAlignment = Enum.TextYAlignment.Top
 
-		local Concat = ""
-		for i, v in pairs(Numbers) do
-			Concat = Concat..v
-			if i ~= #Numbers then
-				Concat = Concat.."\n"
-			end
-		end
-		Number_2.Text = Concat
+	UIPadding.Parent = Text_2
+	UIPadding.PaddingTop = UDim.new(0, 12)
+	UIPadding.PaddingLeft = UDim.new(0, 12)
+	UIPadding.PaddingBottom = UDim.new(0, 12)
+	UIPadding.PaddingRight = UDim.new(0, 12)
 
-	end)
-
-	Clear.MouseButton1Up:Connect(function()
+	Clear_2.MouseButton1Up:Connect(function()
 		Text_2.Text = ""
 	end)
 
-	Execute.MouseButton1Up:Connect(function()
+	Execute_2.MouseButton1Up:Connect(function()
 		loadstring(Text_2.Text)()
 	end)
 
 	local uis = game:GetService("UserInputService")
+	local Ts = game:GetService("TweenService")
+
+	local OpenGoal = {
+		Position = UDim2.new(0.25,0,0.25,0)
+	}
+
+	local CloseGoal = {
+		Position = UDim2.new(0.25,0,-1.25,0)
+	}
+
+	local Bool = false
+
+	local info = TweenInfo.new(1,Enum.EasingStyle.Back,Enum.EasingDirection.InOut,0)
+
+	local An1 = Ts:Create(ImageLabel,info,OpenGoal)
+	local An2 = Ts:Create(ImageLabel,info,CloseGoal)
 
 	uis.InputBegan:Connect(function(key)
 		if key.KeyCode == Enum.KeyCode.G then
-			ScreenGui.Enabled = not ScreenGui.Enabled
+			if Bool == false then
+				Bool = true
+				An1:Play()
+			else
+				Bool = false
+				An2:Play()
+			end
 		end
 	end)
 	
