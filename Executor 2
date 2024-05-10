@@ -199,7 +199,7 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	end)
 
 	Execute.MouseButton1Up:Connect(function()
-		loadstring(Text_2.Text)
+		loadstring(Text_2.Text)()
 	end)
 
 	local uis = game:GetService("UserInputService")
