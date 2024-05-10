@@ -48,8 +48,8 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Frame.BorderSizePixel = 0
-	Frame.Position = UDim2.new(0.2, 0, 0.2, 0)
-	Frame.Size = UDim2.new(0.6, 0, 0.6, 0)
+	Frame.Position = UDim2.new(0.25, 0, 0.25, 0)
+	Frame.Size = UDim2.new(0.5, 0, 0.5, 0)
 
 	UICorner.CornerRadius = UDim.new(0, 20)
 	UICorner.Parent = Frame
