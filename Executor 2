@@ -82,7 +82,7 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	Execute_2.TextWrapped = true
 
 	UITextSizeConstraint.Parent = Execute_2
-	UITextSizeConstraint.MaxTextSize = 16
+	UITextSizeConstraint.MaxTextSize = 20
 
 	Clear.Name = "Clear"
 	Clear.Parent = Buttons
@@ -108,7 +108,7 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	Clear_2.TextWrapped = true
 
 	UITextSizeConstraint_2.Parent = Clear_2
-	UITextSizeConstraint_2.MaxTextSize = 16
+	UITextSizeConstraint_2.MaxTextSize = 20
 
 	Text.Name = "Text"
 	Text.Parent = ImageLabel
@@ -135,7 +135,7 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	Text_2.PlaceholderText = ">"
 	Text_2.Text = ""
 	Text_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Text_2.TextSize = 15.000
+	Text_2.TextSize = 20.00
 	Text_2.TextXAlignment = Enum.TextXAlignment.Left
 	Text_2.TextYAlignment = Enum.TextYAlignment.Top
 
