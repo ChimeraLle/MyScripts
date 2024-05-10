@@ -45,7 +45,7 @@ else
 
 	for i, v in ipairs(Hbc:GetChildren()) do
 		if v:IsA("TextButton") then
-			v.Size = UDim.new(0.125,0,1,0)
+			v.Size = UDim2.new(0.125,0,1,0)
 			local Tl = v:WaitForChild("TabLabel")
 			local Ic = Tl:WaitForChild("Icon")
 			local Tit = Tl:WaitForChild("Title")
