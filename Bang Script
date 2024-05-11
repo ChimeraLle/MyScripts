@@ -10,10 +10,10 @@ if not game:IsLoaded() then
 end
 
 if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
-	
+
 	local uiuiui = Instance.new("Folder",Rs)
 	uiuiui.Name = "BangScript_By:ChimeraLle"
-	
+
 	local plrs = game:GetService("Players")
 	local uis = game:GetService("UserInputService")
 	local Me = plrs.LocalPlayer
@@ -30,7 +30,11 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
 
 		local Anid = Instance.new("Animation")
-		Anid.AnimationId = "rbxassetid://148840371"
+		if MyHum.RigType == Enum.RigType.R15 then
+			Anid.AnimationId = "rbxassetid://5918726674"
+		else
+			Anid.AnimationId = "rbxassetid://148840371"
+		end
 
 		if MyHrp and MyHum then
 
@@ -105,5 +109,5 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 			end
 		end
 	end)
-	
+
 end
