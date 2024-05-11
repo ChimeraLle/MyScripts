@@ -1,0 +1,91 @@
+local plrs = game:GetService("Players")
+local uis = game:GetService("UserInputService")
+local Me = plrs.LocalPlayer
+local M = Me:GetMouse()
+
+local MyChar = Me.Character or Me.CharacterAdded:Wait()
+
+local Selection = false
+local Playing = false
+
+local function StartBang(TarHrp)
+	
+	local MyHrp = MyChar:FindFirstChild("HumanoidRootPart")
+	local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
+	
+	local Anid = Instance.new("Animation")
+	Anid.AnimationId = "rbxassetid://148840371"
+	
+	if MyHrp and MyHum then
+		
+		local MyAni = MyHum:FindFirstChildWhichIsA("Animator")
+		
+		local An = MyAni:LoadAnimation(Anid)
+		
+		local bangOffet = CFrame.new(0,0,1.1)
+		
+		Playing = true
+		
+		local AnPlaying = false
+		
+		local function PlayAnimation()
+			AnPlaying = true
+			An:Play()
+			wait(0.3)
+			AnPlaying = false
+		end
+		
+		while Playing == true do
+			task.wait()
+			MyHrp.CFrame = TarHrp.CFrame * bangOffet
+			
+			if AnPlaying == false then
+				task.spawn(PlayAnimation)
+			end
+			
+		end
+		
+		An:Stop()
+		
+	end
+end
+
+uis.InputBegan:Connect(function(key)
+	if key.UserInputType == Enum.UserInputType.MouseButton1 then
+		if Selection == true then
+			
+			Selection = false
+			
+			for i, v in ipairs(game.CoreGui:GetChildren()) do
+				if v:IsA("Message") then
+					v:Destroy()
+				end
+			end
+			
+			local Target = M.Target
+			if Target and Target:IsA("BasePart") then
+				local TarChar = Target.Parent
+				local TarHrp = TarChar:FindFirstChild("HumanoidRootPart")
+				if TarHrp then
+					StartBang(TarHrp)
+				end
+			end
+		end
+	elseif key.KeyCode == Enum.KeyCode.C then
+		
+		Selection = not Selection
+		
+		if Selection == true then
+			local message = Instance.new("Message")
+			message.Parent = game.CoreGui
+			message.Text = "Select a Player!"
+		else
+			Playing = false
+			for i, v in ipairs(game.CoreGui:GetChildren()) do
+				if v:IsA("Message") then
+					v:Destroy()
+				end
+			end
+		end
+	end
+end)
