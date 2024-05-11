@@ -120,7 +120,7 @@ print("A")
 	end)
 
 	uis.InputEnded:Connect(function(key)
-		elseif key.KeyCode == Enum.KeyCode.LeftControl then
+		if key.KeyCode == Enum.KeyCode.LeftControl then
 			CtrlPressed = false
 		end
 	end)
