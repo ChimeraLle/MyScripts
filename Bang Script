@@ -71,6 +71,8 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		end
 	end
 
+	local CtrlPressed = false
+
 	uis.InputBegan:Connect(function(key)
 		if key.UserInputType == Enum.UserInputType.MouseButton1 then
 			if Selection == true then
@@ -108,6 +110,14 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 					end
 				end
 			end
+		elseif key.KeyCode == Enum.KeyCode.LeftControl then
+			CtrlPressed = true
+		end
+	end)
+
+	uis.InputEnded:Connect(function(key)
+		elseif key.KeyCode == Enum.KeyCode.LeftControl then
+			CtrlPressed = false
 		end
 	end)
 
