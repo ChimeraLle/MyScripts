@@ -51,8 +51,9 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 			local function PlayAnimation()
 				AnPlaying = true
 				An:Play()
-				wait(0.3)
+				wait(0.2)
 				AnPlaying = false
+				An:Stop()
 			end
 
 			while Playing == true do
