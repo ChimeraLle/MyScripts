@@ -30,7 +30,7 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
 
 		local Anid = Instance.new("Animation")
-		if MyHum.RigType == Enum.RigType.R15 then
+		if MyHum.RigType == "R15" then
 			Anid.AnimationId = "rbxassetid://5918726674"
 		else
 			Anid.AnimationId = "rbxassetid://148840371"
