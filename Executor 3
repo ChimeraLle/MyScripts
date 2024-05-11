@@ -183,13 +183,13 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 				An2:Play()
 			end
       end
-    elseif key.KeyCode == Enum.KeyCode.Control then
+    elseif key.KeyCode == Enum.KeyCode.LeftControl then
       CtrlPressed = true
 		end
 	end)
 
   uis.InputEnded:Connect(function(key)
-    if key.KeyCode == Enum.KeyCode.Control then
+    if key.KeyCode == Enum.KeyCode.LeftControl then
       CtrlPressed = false
 		end
   end)
