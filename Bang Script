@@ -9,6 +9,8 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
+print("Bang Script Loading!")
+
 if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 
 	local uiuiui = Instance.new("Folder",Rs)
