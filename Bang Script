@@ -102,18 +102,19 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 				Selection = not Selection
 
 				if Selection == true then
-				local message = Instance.new("Message")
-				message.Parent = CoreGui
-				message.Text = "Select a Player!"
-			else
-				Playing = false
-				for i, v in ipairs(game.CoreGui:GetChildren()) do
-					if v:IsA("Message") then
-						v:Destroy()
+					local message = Instance.new("Message")
+					message.Parent = CoreGui
+					message.Text = "Select a Player!"
+				else
+					Playing = false
+					for i, v in ipairs(game.CoreGui:GetChildren()) do
+						if v:IsA("Message") then
+							v:Destroy()
+						end
 					end
 				end
-
 			end
+		end
 
 		elseif key.KeyCode == Enum.KeyCode.LeftControl then
 			CtrlPressed = true
