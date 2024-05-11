@@ -99,7 +99,7 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 			if CtrlPressed == true then
 				Selection = not Selection
 
-			if Selection == true then
+				if Selection == true then
 				local message = Instance.new("Message")
 				message.Parent = CoreGui
 				message.Text = "Select a Player!"
@@ -110,9 +110,11 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 						v:Destroy()
 					end
 				end
+
 			end
 
 		elseif key.KeyCode == Enum.KeyCode.LeftControl then
+print("A")
 			CtrlPressed = true
 		end
 	end)
