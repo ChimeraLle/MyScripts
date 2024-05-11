@@ -114,7 +114,6 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 			end
 
 		elseif key.KeyCode == Enum.KeyCode.LeftControl then
-print("A")
 			CtrlPressed = true
 		end
 	end)
