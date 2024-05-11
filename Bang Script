@@ -96,7 +96,8 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 			end
 		elseif key.KeyCode == Enum.KeyCode.C then
 
-			Selection = not Selection
+			if CtrlPressed == true then
+				Selection = not Selection
 
 			if Selection == true then
 				local message = Instance.new("Message")
@@ -110,6 +111,8 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 					end
 				end
 			end
+			end
+
 		elseif key.KeyCode == Enum.KeyCode.LeftControl then
 			CtrlPressed = true
 		end
