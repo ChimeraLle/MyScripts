@@ -19,12 +19,12 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 	local Me = plrs.LocalPlayer
 	local M = Me:GetMouse()
 
-	local MyChar = Me.Character or Me.CharacterAdded:Wait()
-
 	local Selection = false
 	local Playing = false
 
 	local function StartBang(TarHrp)
+
+		local MyChar = Me.Character or Me.CharacterAdded:Wait()
 
 		local MyHrp = MyChar:FindFirstChild("HumanoidRootPart")
 		local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
