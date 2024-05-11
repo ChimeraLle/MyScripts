@@ -40,7 +40,7 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 
 			local MyAni = MyHum:FindFirstChildWhichIsA("Animator")
 
-			local An = MyAni:LoadAnimation(Anid)
+			local An = MyAni:LoadAnimation(Anid) or MyHum:LoadAnimation(Anid)
 
 			local bangOffet = CFrame.new(0,0,1.1)
 
