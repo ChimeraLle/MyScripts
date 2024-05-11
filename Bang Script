@@ -29,14 +29,14 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		local MyHrp = MyChar:FindFirstChild("HumanoidRootPart")
 		local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
 
-		local Anid = Instance.new("Animation")
-		if MyHum.RigType == "R15" then
-			Anid.AnimationId = "rbxassetid://5918726674"
-		else
-			Anid.AnimationId = "rbxassetid://148840371"
-		end
-
 		if MyHrp and MyHum then
+
+			local Anid = Instance.new("Animation")
+			if MyHum.RigType == "R15" then
+				Anid.AnimationId = "rbxassetid://5918726674"
+			else
+				Anid.AnimationId = "rbxassetid://148840371"
+			end
 
 			local MyAni = MyHum:FindFirstChildWhichIsA("Animator")
 
