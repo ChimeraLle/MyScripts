@@ -28,7 +28,7 @@ if not Rs:FindFirstChild("FlyScript_By:ChimeraLle") then
 		local char = plr.Character or plr.CharacterAdded:Wait()
 		local hum = char:FindFirstChildWhichIsA("Humanoid")
 		local hrp = char:WaitForChild("HumanoidRootPart")
-		local Torso = char:WaitForChild("Torso")
+		
 		local Head = char:WaitForChild("Head")
 		
 		if Flying == true then
@@ -47,8 +47,19 @@ if not Rs:FindFirstChild("FlyScript_By:ChimeraLle") then
 				Bg.CFrame = cam.CFrame
 				
 				hrp.CanCollide = false
-				Torso.CanCollide = false
 				Head.CanCollide = false
+				
+				if hum.RigType.Name == "R15" then
+					local LTorso = char:WaitForChild("LowerTorso")
+					local UTorso = char:WaitForChild("UpperTorso")
+					
+					LTorso.CanCollide = false
+					UTorso.CanCollide = false
+				else
+					local Torso = char:WaitForChild("Torso")
+					
+					Torso.CanCollide = false
+				end
 				
 				local Speed = 1
 				
@@ -77,8 +88,19 @@ if not Rs:FindFirstChild("FlyScript_By:ChimeraLle") then
 			hum.PlatformStand = false
 			
 			hrp.CanCollide = true
-			Torso.CanCollide = true
 			Head.CanCollide = true
+			
+			if hum.RigType.Name == "R15" then
+				local LTorso = char:WaitForChild("LowerTorso")
+				local UTorso = char:WaitForChild("UpperTorso")
+
+				LTorso.CanCollide = false
+				UTorso.CanCollide = false
+			else
+				local Torso = char:WaitForChild("Torso")
+
+				Torso.CanCollide = false
+			end
 			
 			for i, v in ipairs(hrp:GetChildren()) do
 				if v:IsA("BodyVelocity") or v:IsA("BodyGyro") then
