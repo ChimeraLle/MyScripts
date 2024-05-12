@@ -2,11 +2,7 @@ local CoreGui = game.CoreGui
 local Rs = game:GetService("ReplicatedStorage")
 
 if not game:IsLoaded() then
-	local notLoaded = Instance.new("Message")
-	notLoaded.Parent = CoreGui
-	notLoaded.Text = 'Waiting The Game Load!'
 	game.Loaded:Wait()
-	notLoaded:Destroy()
 end
 
 if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
