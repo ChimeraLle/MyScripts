@@ -1,0 +1,124 @@
+local Rs = game:GetService("ReplicatedStorage")
+
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+if not Rs:FindFirstChild("FlyScript_By:ChimeraLle") then
+	
+	local NewFolder555 = Instance.new("Folder",Rs)
+	NewFolder555.Name = "FlyScript_By:ChimeraLle"
+	
+	local uis = game:GetService("UserInputService")
+	local plrs = game:GetService("Players")
+	local plr = plrs.LocalPlayer
+	
+	local ButtonPressable = false
+	local Flying = false
+	
+	local cam = workspace.CurrentCamera
+	
+	local W = false
+	local A = false
+	local S = false
+	local D = false
+	
+	local function OnKeyPressed()
+		
+		local char = plr.Character or plr.CharacterAdded:Wait()
+		local hum = char:FindFirstChildWhichIsA("Humanoid")
+		local hrp = char:WaitForChild("HumanoidRootPart")
+		local Torso = char:WaitForChild("Torso")
+		local Head = char:WaitForChild("Head")
+		
+		if Flying == true then
+			hum.PlatformStand = true
+			
+			local Bv = Instance.new("BodyVelocity",hrp)
+			Bv.P = 100000
+			Bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+			Bv.Velocity = Vector3.new(0,0,0)
+			
+			local Bg = Instance.new("BodyGyro",hrp)
+			Bg.P = 100000
+			Bg.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+			
+			while Flying == true do
+				Bg.CFrame = cam.CFrame
+				
+				hrp.CanCollide = false
+				Torso.CanCollide = false
+				Head.CanCollide = false
+				
+				local Speed = 1
+				
+				--Forward
+				if W == true then
+					hrp.CFrame = hrp.CFrame + cam.CFrame.LookVector * Speed
+				end
+				--Backward
+				if S == true then
+					hrp.CFrame = hrp.CFrame - cam.CFrame.LookVector * Speed
+				end
+				--Left
+				if A == true then
+					hrp.CFrame = hrp.CFrame - cam.CFrame.RightVector * Speed
+				end
+				--Right
+				if D == true then
+					hrp.CFrame = hrp.CFrame + cam.CFrame.RightVector * Speed
+				end
+				
+				
+				
+				task.wait()
+			end
+		else
+			hum.PlatformStand = false
+			
+			hrp.CanCollide = true
+			Torso.CanCollide = true
+			Head.CanCollide = true
+			
+			for i, v in ipairs(hrp:GetChildren()) do
+				if v:IsA("BodyVelocity") or v:IsA("BodyGyro") then
+					v:Destroy()
+				end
+			end
+			
+		end
+	end
+	
+	uis.InputBegan:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.X then
+			if ButtonPressable == true then
+				Flying = not Flying
+				OnKeyPressed()
+			end
+		elseif key.KeyCode == Enum.KeyCode.LeftControl then
+			ButtonPressable = true
+		elseif key.KeyCode == Enum.KeyCode.W then
+			W = true
+		elseif key.KeyCode == Enum.KeyCode.A then
+			A = true
+		elseif key.KeyCode == Enum.KeyCode.S then
+			S = true
+		elseif key.KeyCode == Enum.KeyCode.D then
+			D = true
+		end
+	end)
+	
+	uis.InputEnded:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.LeftControl then
+			ButtonPressable = false
+		elseif key.KeyCode == Enum.KeyCode.W then
+			W = false
+		elseif key.KeyCode == Enum.KeyCode.A then
+			A = false
+		elseif key.KeyCode == Enum.KeyCode.S then
+			S = false
+		elseif key.KeyCode == Enum.KeyCode.D then
+			D = false
+		end
+	end)
+end
