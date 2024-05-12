@@ -32,8 +32,8 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		if MyHrp and MyHum then
 
 			local Anid = Instance.new("Animation")
-print(Myhum)
-			if Myhum.RigType.Name == "R15" then
+
+			if MyHum.RigType.Name == "R15" then
 				Anid.AnimationId = "rbxassetid://5918726674"
 			else
 				Anid.AnimationId = "rbxassetid://148840371"
