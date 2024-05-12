@@ -27,7 +27,7 @@ if not Rs:FindFirstChild("BangScript_By:ChimeraLle") then
 		local MyChar = Me.Character or Me.CharacterAdded:Wait()
 
 		local MyHrp = MyChar:FindFirstChild("HumanoidRootPart")
-		local MyHum = MyChar:FindFirstChildWhichIsA("Humanoid")
+		local MyHum = MyChar:WaitForChild("Humanoid")
 
 		if MyHrp and MyHum then
 
