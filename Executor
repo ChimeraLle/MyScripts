@@ -1516,7 +1516,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	GameScript.BackgroundTransparency = 0.800000011920929
 	GameScript.BorderColor3 = Color3.new(0, 0, 0)
 	GameScript.BorderSizePixel = 0
-	GameScript.Size = UDim2.new(0.4, 0, 0, 50)
+	GameScript.Size = UDim2.new(1, 0, 0, 60)
 	GameScript.Font = Enum.Font.SourceSans
 	GameScript.Text = ""
 	GameScript.TextColor3 = Color3.new(0, 0, 0)
