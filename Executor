@@ -1766,7 +1766,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	TextBox_4.Font = Enum.Font.Cartoon
 	TextBox_4.PlaceholderColor3 = Color3.new(0.988235, 1, 1)
 	TextBox_4.PlaceholderText = ""
-	TextBox_4.Text = "V"
+	TextBox_4.Text = "G"
 	TextBox_4.TextColor3 = Color3.new(1, 1, 1)
 	TextBox_4.TextScaled = true
 	TextBox_4.TextSize = 14
@@ -1836,7 +1836,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 		Settings_2.Visible = true
 	end)
 
-	local ExKey = "V"
+	local ExKey = "G"
 	local BangKey = "C"
 	local FlyKey = "X"
 
@@ -1848,7 +1848,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 				ExKey = string.upper(Text)
 			end
 		else
-			TextBox_4.Text = "V"
+			TextBox_4.Text = "G"
 		end
 	end)
 
