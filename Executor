@@ -898,7 +898,10 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 	},
 
 	lumber_tycoon_2 = {
-		["Butter GUI"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/Butterisgood/butter-hub/main/Butterhub.txt'))()]]
+		["Butter GUI"] = [[loadstring(game:HttpGet('https://raw.githubusercontent.com/Butterisgood/butter-hub/main/Butterhub.txt'))()]],
+		["School Hub"] = [[game:HttpGet("https://getexploits.com/cexecution/699646509528141824")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IHateSchoolIsCool/FuckCheapShops/main/Schoolhub%20Selector"))("Fuck Cheap Shops")]]
 	},
 
 	kat = {
