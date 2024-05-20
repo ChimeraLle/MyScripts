@@ -1,0 +1,173 @@
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local CoreGui = game:GetService("CoreGui")
+
+if not CoreGui:FindFirstChild("AnPl_By:ChimeraLle") then
+	
+	local ScreenGui = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+	local TextButton = Instance.new("TextButton")
+	local UICorner = Instance.new("UICorner")
+	local UIGridLayout = Instance.new("UIGridLayout")
+	local UICorner_2 = Instance.new("UICorner")
+	local TextLabel = Instance.new("TextLabel")
+	
+	ScreenGui.Name = "AnPl_By:ChimeraLle"
+	ScreenGui.Parent = CoreGui
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	Frame.Parent = ScreenGui
+	Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+	Frame.BackgroundTransparency = 0.5
+	Frame.BorderColor3 = Color3.new(0, 0, 0)
+	Frame.BorderSizePixel = 0
+	Frame.Size = UDim2.new(0.200000003, 0, 0.699999988, 0)
+
+	ScrollingFrame.Parent = Frame
+	ScrollingFrame.Active = true
+	ScrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+	ScrollingFrame.BackgroundTransparency = 1
+	ScrollingFrame.BorderColor3 = Color3.new(0, 0, 0)
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.Position = UDim2.new(0, 0, 0.100000001, 0)
+	ScrollingFrame.Size = UDim2.new(1, 0, 0.899999976, 0)
+	ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+	ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+	
+	TextButton.Parent = script
+	TextButton.BackgroundColor3 = Color3.new(0, 0, 0)
+	TextButton.BackgroundTransparency = 0.5
+	TextButton.BorderColor3 = Color3.new(0, 0, 0)
+	TextButton.BorderSizePixel = 0
+	TextButton.Size = UDim2.new(1, 0, 0, 40)
+	TextButton.Font = Enum.Font.Cartoon
+	TextButton.Text = "Animation Id"
+	TextButton.TextColor3 = Color3.new(0.988235, 1, 1)
+	TextButton.TextScaled = true
+	TextButton.TextSize = 14
+	TextButton.TextWrapped = true
+
+	UICorner.Parent = TextButton
+	UICorner.CornerRadius = UDim.new(0, 12)
+
+	UIGridLayout.Parent = ScrollingFrame
+	UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIGridLayout.CellPadding = UDim2.new(0, 1, 0, 1)
+	UIGridLayout.CellSize = UDim2.new(1, 0, 0, 40)
+
+	UICorner_2.Parent = Frame
+	UICorner_2.CornerRadius = UDim.new(0, 12)
+
+	TextLabel.Parent = Frame
+	TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextLabel.BackgroundTransparency = 1
+	TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+	TextLabel.BorderSizePixel = 0
+	TextLabel.Size = UDim2.new(1, 0, 0.100000001, 0)
+	TextLabel.Font = Enum.Font.Cartoon
+	TextLabel.Text = "Found: ?"
+	TextLabel.TextColor3 = Color3.new(0.988235, 1, 1)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14
+	TextLabel.TextWrapped = true
+	
+	-- Code
+	
+	local UserInputService = game:GetService("UserInputService")
+	local KeyFrameService = game:GetService("KeyframeSequenceProvider")
+	local plrs = game:GetService("Players")
+	local plr = plrs.LocalPlayer
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+
+	Frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = Frame.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	Frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+	local USER_ID = game.CreatorId
+
+	local function extractPages(pagesObject)
+		local array = {}
+		while true do
+			local thisPage = pagesObject:GetCurrentPage()
+			for _, v in pairs(thisPage) do
+				table.insert(array, v)
+			end
+			if pagesObject.IsFinished then
+				break
+			end
+			pagesObject:AdvanceToNextPageAsync()
+		end
+		return array
+	end
+	
+	local succes, inventoryPages = pcall(KeyFrameService:GetAnimations(USER_ID))
+	
+	if succes then
+		local animationIds = extractPages(inventoryPages)
+		
+		for i, id in pairs(animationIds) do
+			task.wait()
+			TextLabel.Text = "Found: " .. i
+			local new = TextButton:Clone()
+			new.Parent = ScrollingFrame
+			new.Name = id
+			new.Text = id
+
+			local anid = Instance.new("Animation")
+			anid.AnimationId = "rbxassetid://"..id
+
+			new.MouseButton1Up:Connect(function()
+				local char = plr.Character or plr.CharacterAdded:Wait()
+				local hum = char:FindFirstChildWhichIsA("Humanoid")
+				if hum then
+					local Ani = hum:FindFirstChildWhichIsA("Animator")
+					if Ani then
+						local an = Ani:LoadAnimation(anid)
+						an:Play()
+					else
+						local an = hum:LoadAnimation(anid)
+						an:Play()
+					end
+				end
+			end)
+		end
+		
+		TextLabel.Text = "Found: " .. #animationIds
+	else
+		TextLabel.Text = "Http Disabled!"
+	end
+end
