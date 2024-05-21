@@ -155,7 +155,7 @@ if not CoreGui:FindFirstChild("AnPl_By:ChimeraLle") then
 		
 		local new = TextButton:Clone()
 		new.Parent = ScrollingFrame
-		new.Name = v.assetId
+		new.Name = v.name
 		new.Text = v.name
 
 		local anid = Instance.new("Animation")
