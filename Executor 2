@@ -1901,6 +1901,18 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 	local Selection = false
 	local Playing = false
 
+	local bangOffet = CFrame.new(0,0,1.1)
+
+	Me.Chatted:Connect(function(msg)
+		local low = string.lower(msg)
+		local spllow = string.split(low," ")
+
+		if spllow[1] == "-BangOffset" then
+			local ZOffset = tonumber(spllow[2])
+			bangOffet = CFrame.new(0,0,ZOffset)
+		end
+	end)
+
 	local function StartBang(TarHrp)
 
 		local MyChar = Me.Character or Me.CharacterAdded:Wait()
@@ -1922,8 +1934,6 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 
 			local An = MyAni:LoadAnimation(Anid) or MyHum:LoadAnimation(Anid)
 
-			local bangOffet = CFrame.new(0,0,1.1)
-
 			Playing = true
 
 			local AnPlaying = false
@@ -1931,7 +1941,7 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			local function PlayAnimation()
 				AnPlaying = true
 				An:Play()
-				wait(0.3)
+				wait(0.2)
 				AnPlaying = false
 				An:Stop()
 			end
