@@ -1916,10 +1916,11 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 			local Speed = tonumber(spllow[2])
 			bangspeed = Speed
 		elseif spllow[1] == "-ba" or spllow[1] == "-banganimation" then
-			local AnId = tostring(spllow[2])
+			local AnId = tonumber(spllow[2])
 			if AnId == "Reset" then
 				AnimationId = nil
 			else
+				local Fix = "rbxassetid://"..AnId
 				AnimationId = AnId
 			end
 		end
