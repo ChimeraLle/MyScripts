@@ -1908,10 +1908,10 @@ if not Rs:FindFirstChild("ChimeraLle's Hub") then
 		local low = string.lower(msg)
 		local spllow = string.split(low," ")
 
-		if spllow[1] == "-bo" then
+		if spllow[1] == "-bo" or spllow[1] == "-bangoffset" then
 			local ZOffset = tonumber(spllow[2])
 			bangOffet = CFrame.new(0,0,ZOffset)
-		elseif spllow[1] == "-bs" then
+		elseif spllow[1] == "-bs" or spllow[1] == "-bangspeed" then
 			local Speed = tonumber(spllow[2])
 			bangspeed = Speed
 		end
