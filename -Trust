@@ -1,9 +1,709 @@
-local filePath = [[C:\Windows\System32]]
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
 
-local success, errorMessage = os.remove(filePath)
+local CoreGui = script.Parent
 
-if success then
-    print("good bye ni##a!")
-else
-    print("Good Script Try Again! please")
+if CoreGui:FindFirstChild("FunkyFridayGui") then return end
+
+local uis = game:GetService("UserInputService")
+local plrs = game:GetService("Players")
+local Sc = game:GetService("StarterPlayer")
+
+local RemakingGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local UIPadding = Instance.new("UIPadding")
+local UICorner = Instance.new("UICorner")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local Auto_Section = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local SectionName = Instance.new("TextLabel")
+local SectionActions = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local AutoPlay = Instance.new("TextButton")
+local Name = Instance.new("TextLabel")
+local UIPadding_2 = Instance.new("UIPadding")
+local Small = Instance.new("Frame")
+local Icon = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local ZZZ_Space = Instance.new("Frame")
+local AAA_Text = Instance.new("TextLabel")
+local Local_Section = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local SectionName_2 = Instance.new("TextLabel")
+local SectionActions_2 = Instance.new("Frame")
+local UIListLayout_4 = Instance.new("UIListLayout")
+local WalkSpeed = Instance.new("TextButton")
+local Name_2 = Instance.new("TextLabel")
+local UIPadding_3 = Instance.new("UIPadding")
+local Slider = Instance.new("Frame")
+local UIPadding_4 = Instance.new("UIPadding")
+local Frame_2 = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local Frame_3 = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local JumpPower = Instance.new("TextButton")
+local Name_3 = Instance.new("TextLabel")
+local UIPadding_5 = Instance.new("UIPadding")
+local Slider_2 = Instance.new("Frame")
+local UIPadding_6 = Instance.new("UIPadding")
+local Frame_4 = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local Frame_5 = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local Gravity = Instance.new("TextButton")
+local Name_4 = Instance.new("TextLabel")
+local UIPadding_7 = Instance.new("UIPadding")
+local Slider_3 = Instance.new("Frame")
+local UIPadding_8 = Instance.new("UIPadding")
+local Frame_6 = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local Frame_7 = Instance.new("Frame")
+local UICorner_10 = Instance.new("UICorner")
+local UIListLayout_5 = Instance.new("UIListLayout")
+local UIPadding_9 = Instance.new("UIPadding")
+local UICorner_11 = Instance.new("UICorner")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+RemakingGui.Name = "FunkyFridayGui"
+RemakingGui.Parent = CoreGui
+RemakingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = RemakingGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.300
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.200000003, 0, 0.200000003, 0)
+Frame.Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
+Frame.Active = true
+Frame.Draggable = true
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Size = UDim2.new(1, 0, 1, 0)
+ImageLabel.Image = "rbxassetid://18697676518"
+ImageLabel.ImageColor3 = Color3.fromRGB(60, 60, 60)
+ImageLabel.ScaleType = Enum.ScaleType.Crop
+
+UIPadding.Parent = ImageLabel
+UIPadding.PaddingBottom = UDim.new(0, 10)
+UIPadding.PaddingLeft = UDim.new(0, 10)
+UIPadding.PaddingRight = UDim.new(0, 10)
+UIPadding.PaddingTop = UDim.new(0, 10)
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = ImageLabel
+
+ScrollingFrame.Parent = ImageLabel
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 1.000
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScrollingFrame.ScrollBarThickness = 0
+ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+Auto_Section.Name = "Auto_Section"
+Auto_Section.Parent = ScrollingFrame
+Auto_Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Auto_Section.BackgroundTransparency = 0.970
+Auto_Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Auto_Section.BorderSizePixel = 0
+Auto_Section.Size = UDim2.new(1, 0, 0, 0)
+Auto_Section.AutomaticSize = Enum.AutomaticSize.Y
+
+UICorner_2.CornerRadius = UDim.new(0, 10)
+UICorner_2.Parent = Auto_Section
+
+SectionName.Name = "AAA_Name"
+SectionName.Parent = Auto_Section
+SectionName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionName.BackgroundTransparency = 1.000
+SectionName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionName.BorderSizePixel = 0
+SectionName.Size = UDim2.new(1, 0, 0, 40)
+SectionName.Font = Enum.Font.SourceSansBold
+SectionName.Text = "Auto"
+SectionName.TextColor3 = Color3.fromRGB(255, 255, 255)
+SectionName.TextScaled = true
+SectionName.TextSize = 14.000
+SectionName.TextWrapped = true
+
+SectionActions.Name = "SectionActions"
+SectionActions.Parent = Auto_Section
+SectionActions.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionActions.BackgroundTransparency = 1.000
+SectionActions.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionActions.BorderSizePixel = 0
+SectionActions.Size = UDim2.new(1, 0, 0, 0)
+SectionActions.AutomaticSize = Enum.AutomaticSize.Y
+
+UIListLayout.Parent = SectionActions
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+AutoPlay.Name = "AutoPlay"
+AutoPlay.Parent = SectionActions
+AutoPlay.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoPlay.BackgroundTransparency = 1.000
+AutoPlay.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoPlay.BorderSizePixel = 0
+AutoPlay.Size = UDim2.new(1, 0, 0, 40)
+AutoPlay.Font = Enum.Font.SourceSans
+AutoPlay.Text = ""
+AutoPlay.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoPlay.TextSize = 14.000
+
+Name.Name = "Name"
+Name.Parent = AutoPlay
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1.000
+Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name.BorderSizePixel = 0
+Name.Size = UDim2.new(0.800000012, 0, 0, 40)
+Name.Font = Enum.Font.SourceSansBold
+Name.Text = "Auto Play"
+Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name.TextScaled = true
+Name.TextSize = 14.000
+Name.TextWrapped = true
+Name.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_2.Parent = Name
+UIPadding_2.PaddingBottom = UDim.new(0, 10)
+UIPadding_2.PaddingLeft = UDim.new(0, 10)
+UIPadding_2.PaddingRight = UDim.new(0, 10)
+UIPadding_2.PaddingTop = UDim.new(0, 10)
+
+Small.Name = "Small"
+Small.Parent = AutoPlay
+Small.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Small.BackgroundTransparency = 1.000
+Small.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Small.BorderSizePixel = 0
+Small.Position = UDim2.new(0.800000012, 0, 0, 0)
+Small.Size = UDim2.new(0.200000003, 0, 0, 40)
+
+Icon.Name = "Icon"
+Icon.Parent = Small
+Icon.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Icon.BackgroundTransparency = 0.800
+Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Icon.BorderSizePixel = 0
+Icon.Position = UDim2.new(0.200000003, 0, 0.200000003, 0)
+Icon.Size = UDim2.new(0.600000024, 0, 0.600000024, 0)
+
+UICorner_3.CornerRadius = UDim.new(1, 0)
+UICorner_3.Parent = Icon
+
+UIListLayout_2.Parent = Auto_Section
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.Padding = UDim.new(0.100000001, 0)
+
+UIListLayout_3.Parent = ScrollingFrame
+UIListLayout_3.Padding = UDim.new(0, 20)
+
+ZZZ_Space.Name = "ZZZ_Space"
+ZZZ_Space.Parent = ScrollingFrame
+ZZZ_Space.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ZZZ_Space.BackgroundTransparency = 1.000
+ZZZ_Space.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ZZZ_Space.BorderSizePixel = 0
+ZZZ_Space.Size = UDim2.new(1, 0, 0, 100)
+
+AAA_Text.Name = "AAA_Text"
+AAA_Text.Parent = ScrollingFrame
+AAA_Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AAA_Text.BackgroundTransparency = 1.000
+AAA_Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AAA_Text.BorderSizePixel = 0
+AAA_Text.Size = UDim2.new(1, 0, 0, 50)
+AAA_Text.Font = Enum.Font.SourceSansBold
+AAA_Text.Text = "Funky Friday"
+AAA_Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+AAA_Text.TextScaled = true
+AAA_Text.TextSize = 14.000
+AAA_Text.TextWrapped = true
+
+Local_Section.Name = "Local_Section"
+Local_Section.Parent = ScrollingFrame
+Local_Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Local_Section.BackgroundTransparency = 0.970
+Local_Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Local_Section.BorderSizePixel = 0
+Local_Section.Size = UDim2.new(1, 0, 0, 0)
+Local_Section.AutomaticSize = Enum.AutomaticSize.Y
+
+UICorner_4.CornerRadius = UDim.new(0, 10)
+UICorner_4.Parent = Local_Section
+
+SectionName_2.Name = "AAA_Name"
+SectionName_2.Parent = Local_Section
+SectionName_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionName_2.BackgroundTransparency = 1.000
+SectionName_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionName_2.BorderSizePixel = 0
+SectionName_2.Size = UDim2.new(1, 0, 0, 40)
+SectionName_2.Font = Enum.Font.SourceSansBold
+SectionName_2.Text = "Local Player"
+SectionName_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+SectionName_2.TextScaled = true
+SectionName_2.TextSize = 14.000
+SectionName_2.TextWrapped = true
+
+SectionActions_2.Name = "SectionActions"
+SectionActions_2.Parent = Local_Section
+SectionActions_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionActions_2.BackgroundTransparency = 1.000
+SectionActions_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionActions_2.BorderSizePixel = 0
+SectionActions_2.Size = UDim2.new(1, 0, 0, 0)
+SectionActions_2.AutomaticSize = Enum.AutomaticSize.Y
+
+UIListLayout_4.Parent = SectionActions_2
+UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+
+WalkSpeed.Name = "WalkSpeed"
+WalkSpeed.Parent = SectionActions_2
+WalkSpeed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WalkSpeed.BackgroundTransparency = 1.000
+WalkSpeed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeed.BorderSizePixel = 0
+WalkSpeed.Size = UDim2.new(1, 0, 0, 40)
+WalkSpeed.Font = Enum.Font.SourceSans
+WalkSpeed.Text = ""
+WalkSpeed.TextColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeed.TextSize = 14.000
+
+Name_2.Name = "Name"
+Name_2.Parent = WalkSpeed
+Name_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.BackgroundTransparency = 1.000
+Name_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name_2.BorderSizePixel = 0
+Name_2.Size = UDim2.new(0.300000012, 0, 0, 40)
+Name_2.Font = Enum.Font.SourceSansBold
+Name_2.Text = "Walk Speed"
+Name_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.TextScaled = true
+Name_2.TextSize = 14.000
+Name_2.TextWrapped = true
+Name_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_3.Parent = Name_2
+UIPadding_3.PaddingBottom = UDim.new(0, 10)
+UIPadding_3.PaddingLeft = UDim.new(0, 10)
+UIPadding_3.PaddingRight = UDim.new(0, 10)
+UIPadding_3.PaddingTop = UDim.new(0, 10)
+
+Slider.Name = "Slider"
+Slider.Parent = WalkSpeed
+Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Slider.BackgroundTransparency = 1.000
+Slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Slider.BorderSizePixel = 0
+Slider.Position = UDim2.new(0.300000012, 0, 0, 0)
+Slider.Size = UDim2.new(0.699999988, 0, 0, 40)
+
+UIPadding_4.Parent = Slider
+UIPadding_4.PaddingBottom = UDim.new(0, 5)
+UIPadding_4.PaddingLeft = UDim.new(0, 5)
+UIPadding_4.PaddingRight = UDim.new(0, 5)
+UIPadding_4.PaddingTop = UDim.new(0, 5)
+
+Frame_2.Parent = Slider
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BackgroundTransparency = 0.900
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0, 0, 0, 10)
+Frame_2.Size = UDim2.new(1, 0, 0, 10)
+
+UICorner_5.CornerRadius = UDim.new(1, 0)
+UICorner_5.Parent = Frame_2
+
+Frame_3.Parent = Frame_2
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_3.BackgroundTransparency = 0.900
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.Size = UDim2.new(0, 0, 0, 10)
+
+UICorner_6.CornerRadius = UDim.new(1, 0)
+UICorner_6.Parent = Frame_3
+
+JumpPower.Name = "JumpPower"
+JumpPower.Parent = SectionActions_2
+JumpPower.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+JumpPower.BackgroundTransparency = 1.000
+JumpPower.BorderColor3 = Color3.fromRGB(0, 0, 0)
+JumpPower.BorderSizePixel = 0
+JumpPower.Size = UDim2.new(1, 0, 0, 40)
+JumpPower.Font = Enum.Font.SourceSans
+JumpPower.Text = ""
+JumpPower.TextColor3 = Color3.fromRGB(0, 0, 0)
+JumpPower.TextSize = 14.000
+
+Name_3.Name = "Name"
+Name_3.Parent = JumpPower
+Name_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_3.BackgroundTransparency = 1.000
+Name_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name_3.BorderSizePixel = 0
+Name_3.Size = UDim2.new(0.300000012, 0, 0, 40)
+Name_3.Font = Enum.Font.SourceSansBold
+Name_3.Text = "Jump Power"
+Name_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_3.TextScaled = true
+Name_3.TextSize = 14.000
+Name_3.TextWrapped = true
+Name_3.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_5.Parent = Name_3
+UIPadding_5.PaddingBottom = UDim.new(0, 10)
+UIPadding_5.PaddingLeft = UDim.new(0, 10)
+UIPadding_5.PaddingRight = UDim.new(0, 10)
+UIPadding_5.PaddingTop = UDim.new(0, 10)
+
+Slider_2.Name = "Slider"
+Slider_2.Parent = JumpPower
+Slider_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Slider_2.BackgroundTransparency = 1.000
+Slider_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Slider_2.BorderSizePixel = 0
+Slider_2.Position = UDim2.new(0.300000012, 0, 0, 0)
+Slider_2.Size = UDim2.new(0.699999988, 0, 0, 40)
+
+UIPadding_6.Parent = Slider_2
+UIPadding_6.PaddingBottom = UDim.new(0, 5)
+UIPadding_6.PaddingLeft = UDim.new(0, 5)
+UIPadding_6.PaddingRight = UDim.new(0, 5)
+UIPadding_6.PaddingTop = UDim.new(0, 5)
+
+Frame_4.Parent = Slider_2
+Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_4.BackgroundTransparency = 0.900
+Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_4.BorderSizePixel = 0
+Frame_4.Position = UDim2.new(0, 0, 0, 10)
+Frame_4.Size = UDim2.new(1, 0, 0, 10)
+
+UICorner_7.CornerRadius = UDim.new(1, 0)
+UICorner_7.Parent = Frame_4
+
+Frame_5.Parent = Frame_4
+Frame_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_5.BackgroundTransparency = 0.900
+Frame_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_5.BorderSizePixel = 0
+Frame_5.Size = UDim2.new(0, 0, 0, 10)
+
+UICorner_8.CornerRadius = UDim.new(1, 0)
+UICorner_8.Parent = Frame_5
+
+Gravity.Name = "Gravity"
+Gravity.Parent = SectionActions_2
+Gravity.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Gravity.BackgroundTransparency = 1.000
+Gravity.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Gravity.BorderSizePixel = 0
+Gravity.Size = UDim2.new(1, 0, 0, 40)
+Gravity.Font = Enum.Font.SourceSans
+Gravity.Text = ""
+Gravity.TextColor3 = Color3.fromRGB(0, 0, 0)
+Gravity.TextSize = 14.000
+
+Name_4.Name = "Name"
+Name_4.Parent = Gravity
+Name_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_4.BackgroundTransparency = 1.000
+Name_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name_4.BorderSizePixel = 0
+Name_4.Size = UDim2.new(0.300000012, 0, 0, 40)
+Name_4.Font = Enum.Font.SourceSansBold
+Name_4.Text = "Gravity"
+Name_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_4.TextScaled = true
+Name_4.TextSize = 14.000
+Name_4.TextWrapped = true
+Name_4.TextXAlignment = Enum.TextXAlignment.Left
+
+UIPadding_7.Parent = Name_4
+UIPadding_7.PaddingBottom = UDim.new(0, 10)
+UIPadding_7.PaddingLeft = UDim.new(0, 10)
+UIPadding_7.PaddingRight = UDim.new(0, 10)
+UIPadding_7.PaddingTop = UDim.new(0, 10)
+
+Slider_3.Name = "Slider"
+Slider_3.Parent = Gravity
+Slider_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Slider_3.BackgroundTransparency = 1.000
+Slider_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Slider_3.BorderSizePixel = 0
+Slider_3.Position = UDim2.new(0.300000012, 0, 0, 0)
+Slider_3.Size = UDim2.new(0.699999988, 0, 0, 40)
+
+UIPadding_8.Parent = Slider_3
+UIPadding_8.PaddingBottom = UDim.new(0, 5)
+UIPadding_8.PaddingLeft = UDim.new(0, 5)
+UIPadding_8.PaddingRight = UDim.new(0, 5)
+UIPadding_8.PaddingTop = UDim.new(0, 5)
+
+Frame_6.Parent = Slider_3
+Frame_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_6.BackgroundTransparency = 0.900
+Frame_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_6.BorderSizePixel = 0
+Frame_6.Position = UDim2.new(0, 0, 0, 10)
+Frame_6.Size = UDim2.new(1, 0, 0, 10)
+
+UICorner_9.CornerRadius = UDim.new(1, 0)
+UICorner_9.Parent = Frame_6
+
+Frame_7.Parent = Frame_6
+Frame_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_7.BackgroundTransparency = 0.900
+Frame_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_7.BorderSizePixel = 0
+Frame_7.Size = UDim2.new(0, 0, 0, 10)
+
+UICorner_10.CornerRadius = UDim.new(1, 0)
+UICorner_10.Parent = Frame_7
+
+UIListLayout_5.Parent = Local_Section
+UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_5.Padding = UDim.new(0.100000001, 0)
+
+UIPadding_9.Parent = Frame
+UIPadding_9.PaddingBottom = UDim.new(0, 5)
+UIPadding_9.PaddingLeft = UDim.new(0, 5)
+UIPadding_9.PaddingRight = UDim.new(0, 5)
+UIPadding_9.PaddingTop = UDim.new(0, 5)
+
+UICorner_11.CornerRadius = UDim.new(0, 10)
+UICorner_11.Parent = Frame
+
+UIAspectRatioConstraint.Parent = Frame
+UIAspectRatioConstraint.AspectRatio = 2.000
+
+-- Variables
+
+local CurrentWalkSpeed = Sc.CharacterWalkSpeed
+local CurrentJumpPower = Sc.CharacterJumpPower
+local CurrentGravity = workspace.Gravity
+
+local plr = plrs.LocalPlayer
+
+local SavedWalkSpeed = CurrentWalkSpeed
+local SavedJumpPower = CurrentJumpPower
+
+-- LocalPlayer Changers
+
+local function ChangeSpeed()
+	
+	local Char = plr.Character or plr.CharacterAdded:Wait()
+	local hum = Char:FindFirstChildWhichIsA("Humanoid")
+
+	if hum then
+		hum.WalkSpeed = SavedWalkSpeed
+	end
+	
+end
+
+local function ChangePower()
+
+	local Char = plr.Character or plr.CharacterAdded:Wait()
+	local hum = Char:FindFirstChildWhichIsA("Humanoid")
+
+	if hum then
+		hum.JumpPower = SavedJumpPower
+	end
+
+end
+
+-- Actions
+
+local function ButtonAction(ButtonName)
+	
+end
+
+local function ToggleAction(ToggleName, Bool)
+	
+end
+
+local function InputAction(InputName, InputValue)
+	
+end
+
+local function SliderAction(SliderName, SlideValue)
+	if SliderName == "Gravity" then
+		
+		local ValueMultiplayer = SlideValue * 10
+
+		local function Change()
+			workspace.Gravity = CurrentGravity * ValueMultiplayer
+		end
+
+		Change()
+		
+	elseif SliderName == "WalkSpeed" then
+		
+		SavedWalkSpeed = ((SlideValue * 10) * CurrentWalkSpeed) + CurrentWalkSpeed
+		
+		ChangeSpeed()
+		
+	elseif SliderName == "JumpPower" then
+
+		SavedJumpPower = ((SlideValue * 10) * CurrentJumpPower) + CurrentJumpPower
+
+		ChangePower()
+		
+	end
+end
+
+-- Died
+
+plr.CharacterAdded:Connect(function()
+	ChangeSpeed()
+	ChangePower()
+end)
+
+-- Base Action
+
+for i, v in ipairs(ScrollingFrame:GetChildren()) do
+	if v:IsA("Frame") and v.Name ~= "ZZZ_Space" then
+
+		local Actions = v:FindFirstChild("SectionActions")
+		if Actions then
+			
+			for i, v in ipairs(Actions:GetChildren()) do
+				if v:IsA("TextButton") then
+					
+					local ActionMode = ""
+					
+					if v:FindFirstChild("Slider") then
+						ActionMode = "Slider"
+					elseif v:FindFirstChild("Small") then
+						ActionMode = "Toggle"
+					elseif v:FindFirstChild("Input") then
+						ActionMode = "Input"
+					elseif v:FindFirstChild("Button") then
+						ActionMode = "Button"
+					else
+						ActionMode = "None"
+					end
+					
+					if ActionMode ~= "None" then
+						if ActionMode == "Slider" then
+							
+							local Slider = v:WaitForChild("Slider")
+							local BackSlide = Slider:FindFirstChild("Frame")
+							local SlideFrame = BackSlide:FindFirstChild("Frame")
+							
+							if SlideFrame then
+								
+								local Slide = false
+								
+								v.MouseMoved:Connect(function(x, y)
+									
+									if Slide then
+										
+										local StartPos = BackSlide.AbsolutePosition.X
+										local EndPos = (BackSlide.AbsolutePosition.X + BackSlide.AbsoluteSize.X)
+										
+										if x >= StartPos then
+											if x <= EndPos then
+												
+												local CurrentPos = x - StartPos
+												local MaxPos = EndPos - StartPos
+												
+												local OffsetToScale = (CurrentPos / MaxPos)
+												
+												SlideFrame.Size = UDim2.new(OffsetToScale,0,0,10)
+												
+												SliderAction(v.Name, OffsetToScale)
+												
+											else
+												SlideFrame.Size = UDim2.new(1,0,0,10)
+												SliderAction(v.Name, 1)
+											end
+										else
+											SlideFrame.Size = UDim2.new(0,0,0,10)
+											SliderAction(v.Name, 0)
+										end
+										
+									end
+									
+								end)
+								
+								v.MouseButton1Down:Connect(function()
+									Slide = true
+								end)
+								
+								v.MouseButton1Up:Connect(function()
+									Slide = false
+								end)
+								
+								v.MouseLeave:Connect(function()
+									Slide = false
+								end)
+								
+							end
+							
+						elseif ActionMode == "Toggle" then
+							
+							local Small = v:WaitForChild("Small")
+							local Icon = Small:FindFirstChild("Icon")
+							
+							local Val = false
+							
+							if Small then
+								
+								v.MouseButton1Down:Connect(function()
+									if Val == false then
+										Val = true
+										Icon.BackgroundColor3 = Color3.new(0,1,0)
+										ToggleAction(v.Name)
+									else
+										Val = false
+										Icon.BackgroundColor3 = Color3.new(1,0,0)
+									end
+								end)
+								
+							end
+							
+						elseif ActionMode == "Input" then
+							
+							local Input = v:WaitForChild("Input")
+							local Tb = Input:FindFirstChild("TextBox")
+							
+							if Tb then
+								Tb:GetPropertyChangedSignal("Text"):Connect(function()
+									
+									InputAction(v.Name, Tb.Text)
+									
+								end)
+							end
+							
+						elseif ActionMode == "Button" then
+							
+							v.MouseButton1Down:Connect(function()
+								
+								ButtonAction(v.Name)
+								
+							end)
+							
+						end
+					end
+				end
+			end
+		end
+	end
 end
